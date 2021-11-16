@@ -1,4 +1,4 @@
-package src.core;
+package main.java;
 
 public class Start {
 
