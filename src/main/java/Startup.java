@@ -7,7 +7,7 @@ public class Startup {
         HARDWARE, SERVICE, BUSINESSEXT, MARKETPLACE
     }
     
-    TechType techType;
+    public TechType techType;
     
     public Startup(TechType type) {
         
