@@ -54,5 +54,10 @@ public class MPStartup extends StartupBuilder{
     public void startTechType(TechType type) {
         newStartup.adjTechType(type);
     }
+    
+    @Override
+    public void startIndependent() {
+        newStartup.makeIndependent();
+    }
 
 }

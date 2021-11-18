@@ -28,5 +28,7 @@ public abstract class StartupBuilder {
     public abstract void startName(String name);
     
     public abstract void startTechType(TechType type);
+    
+    public abstract void startIndependent();
 
 }

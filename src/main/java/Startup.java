@@ -11,6 +11,7 @@ public class Startup {
     private double publicApproval;
     private int level;
     private String name;
+    public TechGiant overLord;
     
     private TechType techType;
     
@@ -74,6 +75,18 @@ public class Startup {
     
     public TechType getTechType() {
         return this.techType;
+    }
+    
+    public void setOverLord(TechGiant giant) {
+        this.overLord = giant;
+    }
+    
+    public TechGiant getOverLord() {
+        return this.overLord;
+    }
+    
+    public void makeIndependent() {
+        this.overLord = null;
     }
     
     // See https://www.linkedin.com/pulse/four-basic-types-technology-company-why-you-need-know-ben-blomerley
