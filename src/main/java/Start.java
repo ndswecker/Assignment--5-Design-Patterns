@@ -13,7 +13,8 @@ public class Start {
         StartupBuilder builder = new MPStartup();
         
         String name = "New Startup POW";
-        director.Construct(builder, name);
+        
+        director.Construct(builder, name, TechType.MARKETPLACE);
         Startup firstSU = builder.getStartup();
         
         System.out.println(firstSU.getLevel());

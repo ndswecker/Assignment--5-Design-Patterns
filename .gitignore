@@ -32,4 +32,4 @@ build
 # Ignore other
 .classpath
 .gitattributes
-settings.gradle.kts
+settings.gradle.*

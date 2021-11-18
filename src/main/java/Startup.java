@@ -12,7 +12,7 @@ public class Startup {
     private int level;
     private String name;
     
-    public TechType techType;
+    private TechType techType;
     
     public String toString() {
         String sendable = "====== " + name + "=====";
@@ -66,6 +66,14 @@ public class Startup {
     
     public String getName() {
         return this.name;
+    }
+    
+    public void adjTechType(TechType type) {
+        this.techType = type;
+    }
+    
+    public TechType getTechType() {
+        return this.techType;
     }
     
     // See https://www.linkedin.com/pulse/four-basic-types-technology-company-why-you-need-know-ben-blomerley

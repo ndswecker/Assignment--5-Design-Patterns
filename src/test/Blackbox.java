@@ -33,7 +33,7 @@ public class Blackbox {
     @Test
     public void startupNameTest() {
         testName = "Test Startup";
-        director.Construct(builder, testName);
+        director.Construct(builder, testName, TechType.MARKETPLACE);
         Startup testSU = builder.getStartup();
         assertEquals(testSU.getName(), testName);
     }
@@ -42,7 +42,7 @@ public class Blackbox {
     public void startupStartingLevelTest() {
         testName = "Test Startup";
         int lvl = 1;
-        director.Construct(builder, testName);
+        director.Construct(builder, testName, TechType.MARKETPLACE);
         Startup testSU = builder.getStartup();
         assertEquals(testSU.getLevel(), lvl);
     }
@@ -50,7 +50,7 @@ public class Blackbox {
     @Test
     public void startupStartingApprovalTest() {
         testName = "Test Startup";
-        director.Construct(builder, testName);
+        director.Construct(builder, testName, TechType.MARKETPLACE);
         double approve = 25.0;
         Startup testSU = builder.getStartup();
         assertEquals(testSU.getPublicApproval(), approve, 0.001);
@@ -59,7 +59,7 @@ public class Blackbox {
     @Test
     public void startupStartingNetIncomeTest() {
         testName = "Test Startup";
-        director.Construct(builder, testName);
+        director.Construct(builder, testName, TechType.MARKETPLACE);
         double netIncome = 75.0;
         Startup testSU = builder.getStartup();
         assertEquals(testSU.getNetIncome(), netIncome, 0.001);
@@ -68,10 +68,10 @@ public class Blackbox {
     @Test
     public void startupStartRevenueTest() {
         testName = "Test Startup";
-        director.Construct(builder, testName);
+        director.Construct(builder, testName, TechType.MARKETPLACE);
         double rev = 50.0;
         Startup testSU = builder.getStartup();
-        assertEquals(testSU.getNetIncome(), rev, 0.001);
+        assertEquals(testSU.getRevenue(), rev, 0.001);
     }
 
 }

@@ -49,5 +49,10 @@ public class MPStartup extends StartupBuilder{
         newStartup.adjName(name);
         
     }
+    
+    @Override
+    public void startTechType(TechType type) {
+        newStartup.adjTechType(type);
+    }
 
 }
