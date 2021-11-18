@@ -2,6 +2,7 @@ package main.java;
 
 import main.java.TechType;
 
+
 public class Startup {
     
     private double netIncome;
