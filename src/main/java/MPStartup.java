@@ -7,34 +7,34 @@ package main.java;
 public class MPStartup extends StartupBuilder{
     
     private Startup newStartup = new Startup();
-
+    
     @Override
     public void startRevenue() {
-        newStartup.adjRevenue(50.0);
+        newStartup.adjRevenue(MID);
         
     }
 
     @Override
     public void startMarketShare() {
-        newStartup.adjMarketShare(50.0);
+        newStartup.adjMarketShare(MID);
         
     }
 
     @Override
     public void startNetIncome() {
-        newStartup.adjNetIncome(75.0);
+        newStartup.adjNetIncome(HIGH);
         
     }
 
     @Override
     public void startApproval() {
-        newStartup.adjPublicApproval(25.0);
+        newStartup.adjPublicApproval(LOW);
         
     }
 
     @Override
     public void startLevel() {
-        newStartup.adjLevel(1);
+        newStartup.adjLevel(START);
         
     }
 
