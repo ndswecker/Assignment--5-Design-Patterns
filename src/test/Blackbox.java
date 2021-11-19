@@ -70,7 +70,13 @@ public class Blackbox {
     @Test
     public void startupStartIndependent() {
         Startup testSU = builder.getStartup();
-        assertNull(testSU.overLord);
+        assertNull(testSU.getOverLord());
+    }
+    
+    @Test
+    public void startupAddOverLord() {
+        Startup testSU = builder.getStartup();
+        //testSU.setOverLord(giant);
     }
 
 }

@@ -9,14 +9,16 @@ public class Startup {
     private double revenue;
     private double marketShare;
     private double publicApproval;
-    private int level;
     private String name;
+    
+    private int level;
+    
     public TechGiant overLord;
     
     private TechType techType;
     
     public String toString() {
-        String sendable = "====== " + name + "=====";
+        String sendable = "====== " + name + " =====";
         sendable += "\n===== Level " + level + " =====";
         return sendable;
     }
