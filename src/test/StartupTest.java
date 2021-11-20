@@ -10,72 +10,77 @@ import main.java.*;
 //import main.java.Startup.TechType;
 import main.java.TechGiant;
 
-public class Blackbox {
+public class StartupTest {
     
-    StartupDirector director;
-    StartupBuilder builder;
-    String testName;
+    StartupDirector startupDirector;
+    StartupBuilder startupBuilder;
+    String startupTestName;
     Startup testSU;
+    
+    TechGiantDirector techDirector;
+    TechGiantBuilder techBuilder;
+    String techTestName;
+    TechGiant testTG;
     
     @Before
     public void setup() throws Exception{
-        director = new StartupDirector();
-        builder = new MPStartup();
-        testName = "Test Startup";
-        director.Construct(builder, testName, TechType.MARKETPLACE);
+        startupDirector = new StartupDirector();
+        startupBuilder = new MPStartup();
+        startupTestName = "Test Startup";
+        startupDirector.Construct(startupBuilder, startupTestName, TechType.MARKETPLACE);
     }
     
     @After
     public void tearDown() throws Exception{
-        director = null;
-        builder = null;
-        testName = null;
+        startupDirector = null;
+        startupBuilder = null;
+        startupTestName = null;
         testSU = null;
     }
     
     @Test
     public void startupNameTest() {
-        Startup testSU = builder.getStartup();
-        assertEquals(testSU.getName(), testName);
+        Startup testSU = startupBuilder.getStartup();
+        assertEquals(testSU.getName(), startupTestName);
     }
     
     @Test
     public void startupStartingLevelTest() {
         int lvl = 1;
-        Startup testSU = builder.getStartup();
+        Startup testSU = startupBuilder.getStartup();
         assertEquals(testSU.getLevel(), lvl);
     }
     
     @Test
     public void startupStartingApprovalTest() {
         double approve = 25.0;
-        Startup testSU = builder.getStartup();
+        Startup testSU = startupBuilder.getStartup();
         assertEquals(testSU.getPublicApproval(), approve, 0.001);
     }
     
     @Test
     public void startupStartingNetIncomeTest() {
         double netIncome = 75.0;
-        Startup testSU = builder.getStartup();
+        Startup testSU = startupBuilder.getStartup();
         assertEquals(testSU.getNetIncome(), netIncome, 0.001);
     }
     
     @Test
     public void startupStartRevenueTest() {
         double rev = 50.0;
-        Startup testSU = builder.getStartup();
+        Startup testSU = startupBuilder.getStartup();
         assertEquals(testSU.getRevenue(), rev, 0.001);
     }
     
     @Test
     public void startupStartIndependent() {
-        Startup testSU = builder.getStartup();
+        Startup testSU = startupBuilder.getStartup();
         assertNull(testSU.getOverLord());
     }
     
     @Test
     public void startupAddOverLord() {
-        Startup testSU = builder.getStartup();
+        Startup testSU = startupBuilder.getStartup();
         //testSU.setOverLord(giant);
     }
 
