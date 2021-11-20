@@ -59,5 +59,11 @@ public class StartupMP extends StartupBuilder {
     public void startIndependent() {
         newStartup.makeIndependent();
     }
+    
+    @Override
+    public void startupD20() {
+        newStartup.generateD20();
+        
+    }
 
 }

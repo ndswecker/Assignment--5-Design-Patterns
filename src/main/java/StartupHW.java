@@ -6,7 +6,7 @@ public class StartupHW extends StartupBuilder {
     
     @Override
     public void startRevenue() {
-        newStartup.adjRevenue(Consts.SU_MID);
+        newStartup.adjRevenue(Consts.SU_HIGH);
         
     }
 
@@ -55,5 +55,12 @@ public class StartupHW extends StartupBuilder {
     public void startIndependent() {
         newStartup.makeIndependent();
     }
+
+    @Override
+    public void startupD20() {
+        //newStartup.d20 = new D20();
+        
+    }
+    
 
 }

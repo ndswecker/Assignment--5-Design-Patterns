@@ -14,6 +14,7 @@ public class StartupDirector {
         builder.startName(name);
         builder.startTechType(type);
         builder.startRevenue();
+        builder.startupD20();
     }
 
 }

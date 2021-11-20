@@ -21,6 +21,8 @@ public class Startup implements StartupAttack{
     
     private TechType techType;
     
+    private D20 d20;
+    
     /**
      * Custom ToString for readability.
      * */
@@ -97,6 +99,10 @@ public class Startup implements StartupAttack{
     public void makeIndependent() {
         this.overLord = null;
     }
+    
+    public int roll(int mod) {
+        return d20.roll(mod);
+    }
 
     @Override
     public boolean hackServer(Startup defender) {
@@ -120,6 +126,10 @@ public class Startup implements StartupAttack{
     public boolean talentDrain(Startup defender) {
         // TODO Auto-generated method stub
         return false;
+    }
+    
+    public void generateD20() {
+        d20 = new D20();
     }
     
     // See https://www.linkedin.com/pulse/four-basic-types-technology-company-why-you-need-know-ben-blomerley

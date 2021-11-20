@@ -22,5 +22,7 @@ public abstract class StartupBuilder {
     public abstract void startTechType(TechType type);
     
     public abstract void startIndependent();
+    
+    public abstract void startupD20();
 
 }
