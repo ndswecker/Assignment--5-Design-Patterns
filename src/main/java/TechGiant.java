@@ -60,10 +60,13 @@ public class TechGiant {
         return this.techType;
     }
     
+    public int getNumOfStartups() {
+        return ownedStartups.size();
+    }
+    
     /**
      * Each TechGiant gets an initial Startup
      * */
-    
     public void firstStartup() {
         
         ownedStartups = new LinkedList<Startup>();

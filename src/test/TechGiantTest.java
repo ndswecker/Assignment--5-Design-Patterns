@@ -66,7 +66,47 @@ public class TechGiantTest {
     }
     
     /**
-     * 
+     * Test TechGiant starting netIncome
      * */
+    @Test
+    public void startingNetIncome() {
+        double income = Consts.TG_HIGH;
+        testTG = techBuilder.getTechGiant();
+        assertEquals(testTG.getNetIncome(), income, 0.001);
+    }
+    
+    /**
+     * Test TechGiant starting Revenue
+     * */
+    @Test
+    public void startingRevenue() {
+        double rev = Consts.TG_HIGH;
+        testTG = techBuilder.getTechGiant();
+        assertEquals(testTG.getRevenue(), rev, 0.001);
+    }
+    
+    /**
+     * Test acquisition of a startup
+     * */
+    @Test
+    public void addAStartup() {
+        testSU = startupBuilder.getStartup();
+        testTG = techBuilder.getTechGiant();
+        testTG.consumeStartup(testSU);
+        assertEquals(testTG.getNumOfStartups(), 2);
+    }
+    
+    /**
+     * Test loss of a startup
+     * */
+    @Test
+    public void looseAStartup() {
+        testSU = startupBuilder.getStartup();
+        testTG = techBuilder.getTechGiant();
+        testTG.consumeStartup(testSU);
+        testTG.releaseStartup(testSU);
+        assertEquals(testTG.getNumOfStartups(), 1);
+        assertNull(testSU.getOverLord());
+    }
 
 }

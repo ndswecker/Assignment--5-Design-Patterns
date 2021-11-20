@@ -99,5 +99,17 @@ public class StartupTest {
         testSU.setOverLord(testTG);
         assertEquals(testTG, testSU.getOverLord());
     }
+    
+    /**
+     * Test removing a TechGiant from a Startup
+     * */
+    @Test
+    public void addAndRemoveTG() {
+        Startup testSU = startupBuilder.getStartup();
+        TechGiant testTG = techBuilder.getTechGiant();
+        testSU.setOverLord(testTG);
+        testSU.makeIndependent();
+        assertNull(testSU.getOverLord());
+    }
 
 }
