@@ -3,6 +3,10 @@ package main.java;
 import main.java.TechType;
 
 
+/**
+* Class: Startup represents startup that can be independent or owned by a tech giant.
+*/
+
 public class Startup {
     
     private double netIncome;
@@ -17,6 +21,9 @@ public class Startup {
     
     private TechType techType;
     
+    /**
+     * Custom ToString for readability.
+     * */
     public String toString() {
         String sendable = "====== " + name + " =====";
         sendable += "\n===== Level " + level + " =====";

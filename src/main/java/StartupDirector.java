@@ -1,5 +1,9 @@
 package main.java;
 
+/**
+* Class: StartupDirector directs a startup builder the cardinal steps to making a startup. 
+*/
+
 public class StartupDirector {
     
     public void Construct(StartupBuilder builder, String name, TechType type) {

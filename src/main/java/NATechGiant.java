@@ -1,7 +1,7 @@
 package main.java;
 
 /**
-* Concrete builder class for a North American Tech Giant
+* Concrete builder class for a North American Tech Giant.
 */
 
 public class NATechGiant extends TechGiantBuilder {
@@ -20,7 +20,7 @@ public class NATechGiant extends TechGiantBuilder {
 
     @Override
     public void startApproval() {
-        newTechGiant.adjPublicApproval(Consts.TG_LOW/10);
+        newTechGiant.adjPublicApproval(Consts.TG_LOW / 10);
     }
 
     @Override
