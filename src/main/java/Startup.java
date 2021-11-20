@@ -7,7 +7,7 @@ import main.java.TechType;
 * Class: Startup represents startup that can be independent or owned by a tech giant.
 */
 
-public class Startup {
+public class Startup implements StartupAttack{
     
     private double netIncome;
     private double revenue;
@@ -96,6 +96,30 @@ public class Startup {
     
     public void makeIndependent() {
         this.overLord = null;
+    }
+
+    @Override
+    public boolean hackServer(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean undercutPrices(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean misinformationBlast(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean talentDrain(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
     }
     
     // See https://www.linkedin.com/pulse/four-basic-types-technology-company-why-you-need-know-ben-blomerley

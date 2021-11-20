@@ -4,7 +4,7 @@ package main.java;
 * Class: StartupBE is a Business extension tech startup. 
 */
 
-public class StartupBE extends StartupBuilder {
+public class StartupBE extends StartupBuilder implements StartupAttack {
     
     private Startup newStartup = new Startup();
     
@@ -58,6 +58,30 @@ public class StartupBE extends StartupBuilder {
     @Override
     public void startIndependent() {
         newStartup.makeIndependent();
+    }
+
+    @Override
+    public boolean hackServer(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean undercutPrices(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean misinformationBlast(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean talentDrain(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
     }
 
 }
