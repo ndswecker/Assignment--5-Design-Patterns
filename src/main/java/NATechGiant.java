@@ -43,13 +43,13 @@ public class NATechGiant extends TechGiantBuilder{
 
     @Override
     public void initialStartup(TechType type) {
-
-        StartupDirector director = new StartupDirector();
-        StartupBuilder builder = new MPStartup();
-        
-        String startupName = "Team America Bros.";
-        
-        director.Construct(builder, startupName, type);
+        newTechGiant.firstStartup();
+        // Make an initial startup for the tech giant to own
+//        StartupDirector director = new StartupDirector();
+//        StartupBuilder builder = new MPStartup();
+//        String startupName = "Team America Bros.";
+//        director.Construct(builder, startupName, type);
+//        Startup firstSU = builder.getStartup();
         
     }
 

@@ -2,19 +2,21 @@ package main.java;
 
 import main.java.TechType;
 
+import java.util.*;
+
 public class TechGiant {
     private double netIncome;
     private double revenue;
     private double publicApproval;
     private String name;
     
-    private int numOfStartups;
-    
     private TechType techType;
+    
+    private LinkedList<Startup> ownedStartups;
     
     public String toString() {
         String sendable = "***** " + name + " *****";
-        sendable += "\n**** ( " + numOfStartups + ") ****";
+        sendable += "\n**** ( " + ownedStartups.size() + ") ****";
         return sendable;
     }
     
@@ -56,6 +58,48 @@ public class TechGiant {
     
     public TechType getTechType() {
         return this.techType;
+    }
+    
+    /**
+     * Each TechGiant gets an initial Startup
+     * */
+    
+    public void firstStartup() {
+        
+        ownedStartups = new LinkedList<Startup>();
+        
+        // Make an initial startup for the tech giant to own
+        StartupDirector director = new StartupDirector();
+        StartupBuilder builder = new MPStartup();
+        String startupName = "Team America Bros.";
+        director.Construct(builder, startupName, techType);
+        Startup firstSU = builder.getStartup();
+        firstSU.setOverLord(this);
+        this.ownedStartups.add(firstSU);
+    }
+    
+    /**
+     * Acquire a startup.
+     * */
+    public void consumeStartup(Startup sub) {
+        // Add startup to list of owned startups
+        this.ownedStartups.add(sub);
+        // Set startup overlord to be this overlord
+        sub.setOverLord(this);
+    }
+    
+    /**
+     * Remove a Startup from the TechGiant's ownership.
+     * */
+    public void releaseStartup(Startup sub) {
+        for(Iterator<Startup> iter = ownedStartups.iterator(); iter.hasNext();) {
+            Startup su = iter.next();
+            if (su == sub) {
+                iter.remove();
+            }
+        }
+        // Free startup to be wild
+        sub.makeIndependent();
     }
     
 }

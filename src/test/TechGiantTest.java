@@ -54,5 +54,19 @@ public class TechGiantTest {
         TechGiant testTG = techBuilder.getTechGiant();
         assertEquals(testTG.getName(), techTestName);
     }
+    
+    /**
+     * Test TechGiant starting public approval rating
+     * */
+    @Test
+    public void startingApprovalTest() {
+        double approve = Consts.TGLOW / 10; 
+        TechGiant testTG = techBuilder.getTechGiant();
+        assertEquals(testTG.getPublicApproval(), approve, 0.001);
+    }
+    
+    /**
+     * 
+     * */
 
 }
