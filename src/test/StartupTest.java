@@ -7,7 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import main.java.*;
-//import main.java.TechGiant;
 
 public class StartupTest {
     
