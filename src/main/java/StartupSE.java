@@ -5,31 +5,31 @@ public class StartupSE extends StartupBuilder {
     
     @Override
     public void startRevenue() {
-        newStartup.adjRevenue(Consts.SU_MID);
+        newStartup.setRevenue(Consts.SU_MID);
         
     }
 
     @Override
     public void startMarketShare() {
-        newStartup.adjMarketShare(Consts.SU_MID);
+        newStartup.setMarketShare(Consts.SU_MID);
         
     }
 
     @Override
     public void startNetIncome() {
-        newStartup.adjNetIncome(Consts.SU_HIGH);
+        newStartup.setNetIncome(Consts.SU_HIGH);
         
     }
 
     @Override
     public void startApproval() {
-        newStartup.adjPublicApproval(Consts.SU_LOW);
+        newStartup.setPublicApproval(Consts.SU_LOW);
         
     }
 
     @Override
     public void startLevel() {
-        newStartup.adjLevel(Consts.START_LEVEL);
+        newStartup.setLevel(Consts.START_LEVEL);
         
     }
 

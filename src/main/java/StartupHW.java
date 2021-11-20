@@ -1,36 +1,40 @@
 package main.java;
 
-public class StartupHW extends StartupBuilder {
+/**
+* Class StartupHW represents a hardware startup
+*/
+
+public class StartupHW extends StartupBuilder implements StartupAttack {
     
     private Startup newStartup = new Startup();
     
     @Override
     public void startRevenue() {
-        newStartup.adjRevenue(Consts.SU_HIGH);
+        newStartup.setRevenue(Consts.SU_HIGH);
         
     }
 
     @Override
     public void startMarketShare() {
-        newStartup.adjMarketShare(Consts.SU_MID);
+        newStartup.setMarketShare(Consts.SU_MID);
         
     }
 
     @Override
     public void startNetIncome() {
-        newStartup.adjNetIncome(Consts.SU_HIGH);
+        newStartup.setNetIncome(Consts.SU_HIGH);
         
     }
 
     @Override
     public void startApproval() {
-        newStartup.adjPublicApproval(Consts.SU_LOW);
+        newStartup.setPublicApproval(Consts.SU_LOW);
         
     }
 
     @Override
     public void startLevel() {
-        newStartup.adjLevel(Consts.START_LEVEL);
+        newStartup.setLevel(Consts.START_LEVEL);
         
     }
 
@@ -61,6 +65,29 @@ public class StartupHW extends StartupBuilder {
         //newStartup.d20 = new D20();
         
     }
-    
 
+    @Override
+    public boolean hackServer(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean undercutPrices(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean misinformationBlast(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean talentDrain(Startup defender) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    
 }

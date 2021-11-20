@@ -39,9 +39,17 @@ public class Startup implements StartupAttack{
     public double getNetIncome() {
         return this.netIncome;
     }
+    
+    public void setNetIncome(double amount) {
+        this.netIncome = amount;
+    }
   
     public void adjRevenue(double amount) {
         this.revenue += amount;
+    }
+    
+    public void setRevenue(double amount) {
+        this.revenue = amount;
     }
     
     public double getRevenue() {
@@ -52,6 +60,10 @@ public class Startup implements StartupAttack{
         this.marketShare += amount;
     }
     
+    public void setMarketShare(Double amount) {
+        this.marketShare = amount;
+    }
+    
     public double getMarketShare() {
         return this.marketShare;
     }
@@ -60,12 +72,20 @@ public class Startup implements StartupAttack{
         this.publicApproval += amount;
     }
     
+    public void setPublicApproval(double amount) {
+        this.publicApproval = amount;
+    }
+    
     public double getPublicApproval() {
         return this.publicApproval;
     }
   
     public void adjLevel(int adj) {
         this.level++;    
+    }
+    
+    public void setLevel(int lvl) {
+        this.level = lvl;
     }
     
     public int getLevel() {

@@ -26,6 +26,7 @@ public class Start {
         System.out.println("North America's First Tech Giant:");
         System.out.println(firstTG.toString());
         
+        //firstSU.talentDrain(defender)
 
     }
 
