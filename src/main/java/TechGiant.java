@@ -1,8 +1,10 @@
 package main.java;
 
-import main.java.TechType;
-
 import java.util.*;
+
+/**
+* Class: TechGiant represents a tech giant that owns startups.
+*/
 
 public class TechGiant {
     private double netIncome;
@@ -65,7 +67,7 @@ public class TechGiant {
     }
     
     /**
-     * Each TechGiant gets an initial Startup
+     * Each TechGiant gets an initial Startup.
      * */
     public void firstStartup() {
         
@@ -95,7 +97,7 @@ public class TechGiant {
      * Remove a Startup from the TechGiant's ownership.
      * */
     public void releaseStartup(Startup sub) {
-        for(Iterator<Startup> iter = ownedStartups.iterator(); iter.hasNext();) {
+        for (Iterator<Startup> iter = ownedStartups.iterator(); iter.hasNext();) {
             Startup su = iter.next();
             if (su == sub) {
                 iter.remove();

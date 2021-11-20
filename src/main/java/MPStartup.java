@@ -1,10 +1,10 @@
 package main.java;
 
 /**
- * Concrete Builder Class
- *  */
+* Concrete Builder Class for a Marketplace startup.
+*/
 
-public class MPStartup extends StartupBuilder{
+public class MPStartup extends StartupBuilder {
     
     private Startup newStartup = new Startup();
     

@@ -1,12 +1,10 @@
 package main.java;
 
+/**
+* Class TechGiantBuilder supports the Builder pattern for a tech giant.
+*/
+
 public abstract class TechGiantBuilder {
-    
-    final double LOW = 250.0;
-    
-    final double MID = 500.0;
-    
-    final double HIGH = 750.0;
     
     public abstract void startRevenue();
     

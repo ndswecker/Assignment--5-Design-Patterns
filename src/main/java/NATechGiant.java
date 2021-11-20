@@ -1,27 +1,26 @@
 package main.java;
 
-public class NATechGiant extends TechGiantBuilder{
+/**
+* Concrete builder class for a North American Tech Giant
+*/
+
+public class NATechGiant extends TechGiantBuilder {
     
     private TechGiant newTechGiant = new TechGiant();
 
     @Override
     public void startRevenue() {
-        
-        newTechGiant.adjRevenue(HIGH);
+        newTechGiant.adjRevenue(Consts.TG_HIGH);
     }
 
     @Override
     public void startNetIncome() {
-        
-        newTechGiant.adjNetIncome(HIGH);
-        
+        newTechGiant.adjNetIncome(Consts.TG_HIGH);
     }
 
     @Override
     public void startApproval() {
-        
-        newTechGiant.adjPublicApproval(LOW/10);
-        
+        newTechGiant.adjPublicApproval(Consts.TG_LOW/10);
     }
 
     @Override
@@ -32,19 +31,16 @@ public class NATechGiant extends TechGiantBuilder{
     @Override
     public void startName(String name) {
         newTechGiant.adjName(name);
-        
     }
 
     @Override
     public void startTechType(TechType type) {
         newTechGiant.adjTechType(type);
-        
     }
 
     @Override
     public void initialStartup(TechType type) {
         newTechGiant.firstStartup();
-        
     }
 
 }
