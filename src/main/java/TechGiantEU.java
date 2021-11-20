@@ -1,10 +1,10 @@
 package main.java;
 
 /**
-* Class EUTechGiant represents and European tech giant. 
+* Class TechGiantEU represents and European tech giant. 
 */
 
-public class EUTechGiant extends TechGiantBuilder {
+public class TechGiantEU extends TechGiantBuilder {
     
     private TechGiant newTechGiant = new TechGiant();
 

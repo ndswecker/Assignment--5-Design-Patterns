@@ -8,7 +8,7 @@ public class Start {
         
         // Make a Startup
         StartupDirector director = new StartupDirector();
-        StartupBuilder builder = new MPStartup();
+        StartupBuilder builder = new StartupMP();
         String name = "New Startup POW";
         director.Construct(builder, name, TechType.MARKETPLACE);
         Startup firstSU = builder.getStartup();
@@ -18,7 +18,7 @@ public class Start {
         
         // Make a TechGiant
         TechGiantDirector techDirector = new TechGiantDirector();
-        TechGiantBuilder techBuilder = new NATechGiant();
+        TechGiantBuilder techBuilder = new TechGiantNA();
         String techName = "North American Dominance INC";
         techDirector.Construct(techBuilder, techName, TechType.SERVICE);
         TechGiant firstTG = techBuilder.getTechGiant();

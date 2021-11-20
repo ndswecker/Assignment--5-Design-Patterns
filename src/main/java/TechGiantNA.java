@@ -1,10 +1,10 @@
 package main.java;
 
 /**
-* Concrete builder class for a North American Tech Giant.
+* Class TechGiantNA represents a North American tech giant.
 */
 
-public class NATechGiant extends TechGiantBuilder {
+public class TechGiantNA extends TechGiantBuilder {
     
     private TechGiant newTechGiant = new TechGiant();
 

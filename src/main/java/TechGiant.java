@@ -75,7 +75,7 @@ public class TechGiant {
         
         // Make an initial startup for the tech giant to own
         StartupDirector director = new StartupDirector();
-        StartupBuilder builder = new MPStartup();
+        StartupBuilder builder = new StartupMP();
         String startupName = "Team America Bros.";
         director.Construct(builder, startupName, techType);
         Startup firstSU = builder.getStartup();

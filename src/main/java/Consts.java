@@ -1,5 +1,9 @@
 package main.java;
 
+/**
+* Class: Consts holds constant variables. 
+*/
+
 public final class Consts {
     
     public static final double TG_HIGH = 750.0;

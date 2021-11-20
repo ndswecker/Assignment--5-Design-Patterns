@@ -23,12 +23,12 @@ public class StartupTest {
     @Before
     public void setup() throws Exception{
         startupDirector = new StartupDirector();
-        startupBuilder = new MPStartup();
+        startupBuilder = new StartupMP();
         startupTestName = "Test Startup";
         startupDirector.Construct(startupBuilder, startupTestName, TechType.MARKETPLACE);
         
         techDirector = new TechGiantDirector();
-        techBuilder = new NATechGiant();
+        techBuilder = new TechGiantNA();
         techTestName = "Test Tech Giant of NA";
         techDirector.Construct(techBuilder, techTestName, TechType.SERVICE);
     }

@@ -1,7 +1,7 @@
 package main.java;
 
 /**
- * Abstract Builder Class for Builder pattern.
+ * Class StartupBuilder is an Abstract Builder Class for Builder pattern.
  */
 public abstract class StartupBuilder {
 
