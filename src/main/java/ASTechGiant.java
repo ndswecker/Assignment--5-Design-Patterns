@@ -1,5 +1,9 @@
 package main.java;
 
+/**
+* Class: ASTechGiant represents an Asian tech giant. 
+*/
+
 public class ASTechGiant extends TechGiantBuilder {
     
     private TechGiant newTechGiant = new TechGiant();
