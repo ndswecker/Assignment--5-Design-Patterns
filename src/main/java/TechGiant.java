@@ -16,7 +16,7 @@ public class TechGiant {
     
     public String toString() {
         String sendable = "***** " + name + " *****";
-        sendable += "\n**** ( " + ownedStartups.size() + ") ****";
+        sendable += "\n**** (" + ownedStartups.size() + ") Owned Startups ****";
         return sendable;
     }
     

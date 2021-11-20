@@ -10,31 +10,31 @@ public class MPStartup extends StartupBuilder{
     
     @Override
     public void startRevenue() {
-        newStartup.adjRevenue(MID);
+        newStartup.adjRevenue(Consts.SU_MID);
         
     }
 
     @Override
     public void startMarketShare() {
-        newStartup.adjMarketShare(MID);
+        newStartup.adjMarketShare(Consts.SU_MID);
         
     }
 
     @Override
     public void startNetIncome() {
-        newStartup.adjNetIncome(HIGH);
+        newStartup.adjNetIncome(Consts.SU_HIGH);
         
     }
 
     @Override
     public void startApproval() {
-        newStartup.adjPublicApproval(LOW);
+        newStartup.adjPublicApproval(Consts.SU_LOW);
         
     }
 
     @Override
     public void startLevel() {
-        newStartup.adjLevel(START);
+        newStartup.adjLevel(Consts.START_LEVEL);
         
     }
 

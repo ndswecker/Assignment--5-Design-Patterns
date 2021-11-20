@@ -60,7 +60,7 @@ public class TechGiantTest {
      * */
     @Test
     public void startingApprovalTest() {
-        double approve = Consts.TGLOW / 10; 
+        double approve = Consts.TG_LOW / 10; 
         TechGiant testTG = techBuilder.getTechGiant();
         assertEquals(testTG.getPublicApproval(), approve, 0.001);
     }

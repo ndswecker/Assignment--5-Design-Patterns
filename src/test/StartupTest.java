@@ -61,21 +61,21 @@ public class StartupTest {
     
     @Test
     public void startupStartingApprovalTest() {
-        double approve = 25.0;
+        double approve = Consts.SU_LOW;
         Startup testSU = startupBuilder.getStartup();
         assertEquals(testSU.getPublicApproval(), approve, 0.001);
     }
     
     @Test
     public void startupStartingNetIncomeTest() {
-        double netIncome = 75.0;
+        double netIncome = Consts.SU_HIGH;
         Startup testSU = startupBuilder.getStartup();
         assertEquals(testSU.getNetIncome(), netIncome, 0.001);
     }
     
     @Test
     public void startupStartRevenueTest() {
-        double rev = 50.0;
+        double rev = Consts.SU_MID;
         Startup testSU = startupBuilder.getStartup();
         assertEquals(testSU.getRevenue(), rev, 0.001);
     }
