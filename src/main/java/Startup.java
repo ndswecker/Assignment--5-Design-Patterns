@@ -10,6 +10,8 @@ import main.java.TechType;
 * revenue:          effects hack server attack.
 * marketShare:      effects talent drain attack.
 * publicApproval:   effects misinformation attack.
+* 
+* <p>Attacker wins ties.
 */
 
 public class Startup implements StartupAttack{
@@ -131,6 +133,8 @@ public class Startup implements StartupAttack{
         return d20.roll(mod);
     }
     
+    ///////////////////// MODIFIERS /////////////////////
+    
     /**
      * Net Income Modifier.
      * */
@@ -143,7 +147,7 @@ public class Startup implements StartupAttack{
     }
     
     public void adjNetIncomeMod(int adj) {
-        this.netIncome += adj;
+        this.netIncomeMod += adj;
     }
     
     /**
@@ -190,12 +194,21 @@ public class Startup implements StartupAttack{
     public void adjMarketShareMod(int adj) {
         this.marketShareMod += adj;
     }
+    
+    public void generateD20() {
+        d20 = new D20();
+    }
+    
+///////////////////// ATTACKS /////////////////////
 
+    /**
+     * hackServer relies on the revenue mod.
+     * */
     @Override
     public boolean hackServer(Startup defender) {
         
-        int atkRoll = this.roll(Consts.MOD_HIGH);
-        int defRoll = this.roll(Consts.MOD_LOW);
+        int atkRoll = this.roll(this.getRevenueMod());
+        int defRoll = defender.roll(defender.getRevenueMod());
         
         if (atkRoll < defRoll) {
             return false;
@@ -203,28 +216,49 @@ public class Startup implements StartupAttack{
         
         return true;
     }
-
+    
+    /**
+     * undercutPrices relies on the net income modifier.
+     * */
     @Override
     public boolean undercutPrices(Startup defender) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean misinformationBlast(Startup defender) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean talentDrain(Startup defender) {
-        // TODO Auto-generated method stub
-        return false;
+        int atkRoll = this.roll(this.getNetIncomeMod());
+        int defRoll = defender.roll(defender.getNetIncomeMod());
+        
+        if (atkRoll < defRoll) {
+            return false;
+        }
+        return true;
     }
     
-    public void generateD20() {
-        d20 = new D20();
+    /**
+     * misinformationBlast relies on the public approval modifier.
+     * */
+    @Override
+    public boolean misinformationBlast(Startup defender) {
+        int atkRoll = this.roll(this.getPublicApprovalMod());
+        int defRoll = defender.roll(defender.getPublicApprovalMod());
+        
+        if (atkRoll < defRoll) {
+            return false;
+        }
+        return true;
     }
+    
+    /**
+     * talentDrain relies on the market share modifier.
+     * */
+    @Override
+    public boolean talentDrain(Startup defender) {
+        int atkRoll = this.roll(getMarketShareMod());
+        int defRoll = defender.roll(defender.getMarketShareMod());
+        
+        if (atkRoll < defRoll) {
+            return false;
+        }
+        return true;
+    }
+    
     
     // See https://www.linkedin.com/pulse/four-basic-types-technology-company-why-you-need-know-ben-blomerley
     //    public enum TechType {

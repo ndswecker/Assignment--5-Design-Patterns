@@ -131,7 +131,7 @@ public class StartupTest {
     }
     
     /**
-     * Test removing a TechGiant from a Startup
+     * Test removing a TechGiant from a Startup.
      * */
     @Test
     public void addAndRemoveTG() {
@@ -143,16 +143,20 @@ public class StartupTest {
     }
     
     /**
-     * Test an attack from one startup to another
+     * Test a hack server attack from one startup to multiple others.
      * */
     @Test
-    public void attackSU() {
-        boolean outcome = testSU.hackServer(test2SU);
-        assertNotNull(outcome);
+    public void hackServerTest() {
+        boolean outcome1 = testSU.hackServer(test2SU);
+        assertNotNull(outcome1);
+        boolean outcome2 = testSU.hackServer(test3SU);
+        assertNotNull(outcome2);
+        boolean outcome3 = testSU.hackServer(test4SU);
+        assertNotNull(outcome3);
     }
     
     /**
-     * Test a BUSINESSEXT mods
+     * Test a BUSINESSEXT mods.
      * */
     @Test
     public void modBE() {
@@ -163,7 +167,34 @@ public class StartupTest {
     }
     
     /**
-     * Test a HARDWARE mods
+     * Test changing modifiers.
+     * */
+    
+    @Test 
+    public void changeMods() {
+        test4SU.adjNetIncomeMod(1);
+        assertEquals(test4SU.getNetIncomeMod(), Consts.MOD_ZERO + 1);
+        test4SU.adjNetIncomeMod(-1);
+        assertEquals(test4SU.getNetIncomeMod(), Consts.MOD_ZERO);
+        
+        test4SU.adjRevenueMod(1);
+        assertEquals(test4SU.getRevenueMod(), Consts.MOD_HIGH + 1);
+        test4SU.adjRevenueMod(-2);
+        assertEquals(test4SU.getRevenueMod(), Consts.MOD_MID);
+        
+        test4SU.adjPublicApprovalMod(1);
+        assertEquals(test4SU.getPublicApprovalMod(), Consts.MOD_MID + 1);
+        test4SU.adjPublicApprovalMod(-2);
+        assertEquals(test4SU.getPublicApprovalMod(), Consts.MOD_LOW);
+        
+        test4SU.adjMarketShareMod(1);
+        assertEquals(test4SU.getMarketShareMod(), Consts.MOD_LOW + 1);
+        test4SU.adjMarketShareMod(-2);
+        assertEquals(test4SU.getMarketShareMod(), Consts.MOD_ZERO);
+    }
+    
+    /**
+     * Test a HARDWARE mods.
      * */
     @Test
     public void modHW() {
@@ -174,7 +205,7 @@ public class StartupTest {
     }
     
     /**
-     * Test a SERVICE mods
+     * Test a SERVICE mods.
      * */
     @Test
     public void modSE() {
@@ -185,7 +216,7 @@ public class StartupTest {
     }
     
     /**
-     * Test a MARKETPLACE mods
+     * Test a MARKETPLACE mods.
      * */
     @Test
     public void modMP() {

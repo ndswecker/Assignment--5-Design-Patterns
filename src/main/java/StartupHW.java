@@ -62,7 +62,7 @@ public class StartupHW extends StartupBuilder implements StartupAttack {
 
     @Override
     public void startupD20() {
-        //newStartup.d20 = new D20();
+        newStartup.generateD20();
         
     }
 
