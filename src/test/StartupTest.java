@@ -15,9 +15,12 @@ public class StartupTest {
     String startupTestName;
     String startupTestName2;
     String startupTestName3;
+    String startupTestName4;
+    
     Startup testSU;
     Startup test2SU;
     Startup test3SU;
+    Startup test4SU;
     
     TechGiantDirector techDirector;
     TechGiantBuilder techBuilder;
@@ -31,6 +34,7 @@ public class StartupTest {
         startupTestName = "Test Startup";
         startupTestName2 = "The Other Guy";
         startupTestName3 = "Backdoor Bros";
+        startupTestName4 = "Better Service";
         
         startupDirector.Construct(startupBuilder, startupTestName, TechType.MARKETPLACE);
         testSU = startupBuilder.getStartup();
@@ -42,6 +46,10 @@ public class StartupTest {
         startupBuilder = new StartupSE();
         startupDirector.Construct(startupBuilder, startupTestName3, TechType.SERVICE);
         test3SU = startupBuilder.getStartup();
+        
+        startupBuilder = new StartupBE();
+        startupDirector.Construct(startupBuilder, startupTestName4, TechType.BUSINESSEXT);
+        test4SU = startupBuilder.getStartup();
         
         techDirector = new TechGiantDirector();
         techBuilder = new TechGiantNA();
@@ -59,6 +67,7 @@ public class StartupTest {
         testSU = null;
         test2SU = null;
         test3SU = null;
+        test4SU = null;
         
         techDirector = null;
         techBuilder = null;
@@ -140,6 +149,50 @@ public class StartupTest {
     public void attackSU() {
         boolean outcome = testSU.hackServer(test2SU);
         assertNotNull(outcome);
+    }
+    
+    /**
+     * Test a BUSINESSEXT mods
+     * */
+    @Test
+    public void modBE() {
+        assertEquals(test4SU.getNetIncomeMod(), Consts.MOD_ZERO);
+        assertEquals(test4SU.getRevenueMod(), Consts.MOD_HIGH);
+        assertEquals(test4SU.getPublicApprovalMod(), Consts.MOD_MID);
+        assertEquals(test4SU.getMarketShareMod(), Consts.MOD_LOW);
+    }
+    
+    /**
+     * Test a HARDWARE mods
+     * */
+    @Test
+    public void modHW() {
+        assertEquals(test2SU.getNetIncomeMod(), Consts.MOD_HIGH);
+        assertEquals(test2SU.getRevenueMod(), Consts.MOD_MID);
+        assertEquals(test2SU.getPublicApprovalMod(), Consts.MOD_LOW);
+        assertEquals(test2SU.getMarketShareMod(), Consts.MOD_ZERO);
+    }
+    
+    /**
+     * Test a SERVICE mods
+     * */
+    @Test
+    public void modSE() {
+        assertEquals(test3SU.getNetIncomeMod(), Consts.MOD_LOW);
+        assertEquals(test3SU.getRevenueMod(), Consts.MOD_ZERO);
+        assertEquals(test3SU.getPublicApprovalMod(), Consts.MOD_HIGH);
+        assertEquals(test3SU.getMarketShareMod(), Consts.MOD_MID);
+    }
+    
+    /**
+     * Test a MARKETPLACE mods
+     * */
+    @Test
+    public void modMP() {
+        assertEquals(testSU.getNetIncomeMod(), Consts.MOD_MID);
+        assertEquals(testSU.getRevenueMod(), Consts.MOD_LOW);
+        assertEquals(testSU.getPublicApprovalMod(), Consts.MOD_ZERO);
+        assertEquals(testSU.getMarketShareMod(), Consts.MOD_HIGH);
     }
 
 }
