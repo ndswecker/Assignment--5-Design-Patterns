@@ -60,5 +60,14 @@ public class StartupSE extends StartupBuilder {
         newStartup.generateD20();
         
     }
+    
+    @Override
+    public void setMods(int net, int rev, int app, int mar) {
+        newStartup.startNetIncomeMod(net);
+        newStartup.startRevenueMod(rev);
+        newStartup.startPublicApprovalMod(app);
+        newStartup.startMarketShareMod(mar);
+        
+    }
 
 }

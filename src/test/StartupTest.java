@@ -138,6 +138,8 @@ public class StartupTest {
      * */
     @Test
     public void attackSU() {
+        boolean outcome = testSU.hackServer(test2SU);
+        assertNotNull(outcome);
     }
 
 }

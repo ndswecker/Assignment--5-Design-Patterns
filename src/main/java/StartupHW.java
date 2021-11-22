@@ -90,4 +90,13 @@ public class StartupHW extends StartupBuilder implements StartupAttack {
         return false;
     }
     
+    @Override
+    public void setMods(int net, int rev, int app, int mar) {
+        newStartup.startNetIncomeMod(net);
+        newStartup.startRevenueMod(rev);
+        newStartup.startPublicApprovalMod(app);
+        newStartup.startMarketShareMod(mar);
+        
+    }
+    
 }

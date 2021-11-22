@@ -15,6 +15,21 @@ public class StartupDirector {
         builder.startTechType(type);
         builder.startRevenue();
         builder.startupD20();
+        
+        // netIcome, revenue, publicApproval, marketShare
+        switch (type) {
+        case HARDWARE: 
+            builder.setMods(Consts.MOD_HIGH, Consts.MOD_MID, Consts.MOD_LOW, Consts.MOD_ZERO);
+            break;
+        case BUSINESSEXT:
+            builder.setMods(Consts.MOD_ZERO, Consts.MOD_HIGH, Consts.MOD_MID, Consts.MOD_LOW);
+            break;
+        case SERVICE:
+            builder.setMods(Consts.MOD_LOW, Consts.MOD_ZERO, Consts.MOD_HIGH, Consts.MOD_MID);
+            break;
+        case MARKETPLACE:
+            builder.setMods(Consts.MOD_MID, Consts.MOD_LOW, Consts.MOD_ZERO, Consts.MOD_HIGH);
+        }
     }
 
 }

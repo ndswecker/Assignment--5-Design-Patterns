@@ -5,6 +5,11 @@ import main.java.TechType;
 
 /**
 * Class: Startup represents startup that can be independent or owned by a tech giant.
+* 
+* netIncome:        effects under cut prices attack.
+* revenue:          effects hack server attack.
+* marketShare:      effects talent drain attack.
+* publicApproval:   effects misinformation attack.
 */
 
 public class Startup implements StartupAttack{
@@ -22,6 +27,8 @@ public class Startup implements StartupAttack{
     private TechType techType;
     
     private D20 d20;
+    
+    private int netIncomeMod, revenueMod, marketShareMod, publicApprovalMod;
     
     /**
      * Custom ToString for readability.
@@ -123,11 +130,78 @@ public class Startup implements StartupAttack{
     public int roll(int mod) {
         return d20.roll(mod);
     }
+    
+    /**
+     * Net Income Modifier.
+     * */
+    public int getNetIncomeMod() {
+        return this.netIncomeMod;
+    }
+    
+    public void startNetIncomeMod(int mod) {
+        this.netIncomeMod = mod;
+    }
+    
+    public void adjNetIncomeMod(int adj) {
+        this.netIncome += adj;
+    }
+    
+    /**
+     * Revenue Modifier.
+     * */
+    public int getRevenueMod() {
+        return this.revenueMod;
+    }
+    
+    public void startRevenueMod(int mod) {
+        this.revenueMod = mod;
+    }
+    
+    public void adjRevenueMod(int adj) {
+        this.revenueMod += adj;
+    }
+    
+    /**
+     * Public Approval Modifier.
+     * */
+    public int getPublicApprovalMod() {
+        return this.publicApprovalMod;
+    }
+    
+    public void startPublicApprovalMod(int mod) {
+        this.publicApprovalMod = mod;
+    }
+    
+    public void adjPublicApprovalMod(int adj) {
+        this.publicApprovalMod += adj;
+    }
+    
+    /**
+     * Marketshare Modifier.
+     * */
+    public int getMarketShareMod() {
+        return this.marketShareMod;
+    }
+    
+    public void startMarketShareMod(int mod) {
+        this.marketShareMod = mod;
+    }
+    
+    public void adjMarketShareMod(int adj) {
+        this.marketShareMod += adj;
+    }
 
     @Override
     public boolean hackServer(Startup defender) {
-        // TODO Auto-generated method stub
-        return false;
+        
+        int atkRoll = this.roll(Consts.MOD_HIGH);
+        int defRoll = this.roll(Consts.MOD_LOW);
+        
+        if (atkRoll < defRoll) {
+            return false;
+        }
+        
+        return true;
     }
 
     @Override

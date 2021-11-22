@@ -15,4 +15,9 @@ public final class Consts {
     public static final double SU_LOW = 25.0;
     
     public static final int START_LEVEL = 1;
+    
+    public static final int MOD_LOW = 1;
+    public static final int MOD_MID = 2;
+    public static final int MOD_HIGH = 3;
+    public static final int MOD_ZERO = 0;
 }
