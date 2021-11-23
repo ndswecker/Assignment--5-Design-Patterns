@@ -2,7 +2,15 @@ package main.java;
 
 public class Quarter implements FinancialEvents{
     
-    int order;
+    private int order;
+    
+    public int getOrder() {
+        return this.order;
+    }
+    
+    public void setOrder(int num) {
+        this.order = num;
+    }
 
     @Override
     public void SupplyChainCollapse() {

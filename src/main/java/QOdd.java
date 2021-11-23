@@ -1,19 +1,22 @@
 package main.java;
 
-public class Q1 extends QuarterBuilder{
+public class QOdd extends QuarterBuilder{
     
     private Quarter newQuarter = new Quarter();
 
     @Override
     public void setOrder(int order) {
-        newQuarter.order = order;
-        
+        newQuarter.setOrder(order);
     }
 
     @Override
     public void addToSystem(MarketSystem system) {
         system.allQuarters.add(newQuarter);
-        
+    }
+    
+    @Override
+    public Quarter getQuarter() {
+        return newQuarter;
     }
 
 }

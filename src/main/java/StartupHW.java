@@ -101,7 +101,6 @@ public class StartupHW extends StartupBuilder implements StartupAttack {
 
     @Override
     public void addToSystem(MarketSystem system) {
-        System.out.println("adding startup to system.");
         system.allStartups.add(newStartup);
         
     }
