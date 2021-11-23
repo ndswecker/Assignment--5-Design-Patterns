@@ -42,4 +42,10 @@ public class TechGiantEU extends TechGiantBuilder {
     public void initialStartup(TechType type) {
         newTechGiant.firstStartup();
     }
+    
+    @Override
+    public void addToSystem() {
+        Start.system.allTechGiants.add(newTechGiant);
+        
+    }
 }

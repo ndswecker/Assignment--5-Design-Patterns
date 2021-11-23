@@ -1,10 +1,16 @@
 package main.java;
 
+import java.util.*;
+
 public class Start {
+    
+    public static MarketSystem system;
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         System.out.println("Initial fireup.");
+        
+        system = new MarketSystem();
         
         // Make a Startup
         StartupDirector director = new StartupDirector();

@@ -19,5 +19,7 @@ public abstract class TechGiantBuilder {
     public abstract void startTechType(TechType type);
     
     public abstract void initialStartup(TechType type);
+    
+    public abstract void addToSystem();
 
 }

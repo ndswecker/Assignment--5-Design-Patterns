@@ -69,5 +69,11 @@ public class StartupSE extends StartupBuilder {
         newStartup.startMarketShareMod(mar);
         
     }
+    
+    @Override
+    public void addToSystem() {
+        Start.system.allStartups.add(newStartup);
+        
+    }
 
 }

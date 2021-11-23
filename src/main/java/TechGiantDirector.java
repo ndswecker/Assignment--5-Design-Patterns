@@ -19,6 +19,8 @@ public class TechGiantDirector {
         builder.startRevenue();
         
         builder.initialStartup(type);
+        
+        builder.addToSystem();
     }
 
 }

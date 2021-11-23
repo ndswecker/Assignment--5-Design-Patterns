@@ -10,4 +10,10 @@ public class Q1 extends QuarterBuilder{
         
     }
 
+    @Override
+    public void addToSystem() {
+        Start.system.allQuarters.add(newQuarter);
+        
+    }
+
 }

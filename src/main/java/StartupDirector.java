@@ -30,6 +30,8 @@ public class StartupDirector {
         case MARKETPLACE:
             builder.setMods(Consts.MOD_MID, Consts.MOD_LOW, Consts.MOD_ZERO, Consts.MOD_HIGH);
         }
+        
+        builder.addToSystem();
     }
 
 }

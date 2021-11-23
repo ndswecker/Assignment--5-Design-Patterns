@@ -26,5 +26,7 @@ public abstract class StartupBuilder {
     public abstract void startupD20();
     
     public abstract void setMods(int net, int rev, int app, int mar);
+    
+    public abstract void addToSystem();
 
 }

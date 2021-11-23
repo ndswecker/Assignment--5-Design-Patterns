@@ -98,5 +98,11 @@ public class StartupMP extends StartupBuilder implements StartupAttack {
         newStartup.startMarketShareMod(mar);
         
     }
+    
+    @Override
+    public void addToSystem() {
+        Start.system.allStartups.add(newStartup);
+        
+    }
 
 }

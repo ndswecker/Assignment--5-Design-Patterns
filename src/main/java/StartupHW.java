@@ -98,5 +98,12 @@ public class StartupHW extends StartupBuilder implements StartupAttack {
         newStartup.startMarketShareMod(mar);
         
     }
+
+    @Override
+    public void addToSystem() {
+        System.out.println("adding a startup to the system.");
+        Start.system.allStartups.add(newStartup);
+        
+    }
     
 }
