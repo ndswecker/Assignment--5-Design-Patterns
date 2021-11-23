@@ -69,7 +69,7 @@ public class TechGiant {
     /**
      * Each TechGiant gets an initial Startup.
      * */
-    public void firstStartup() {
+    public void firstStartup(MarketSystem system) {
         
         ownedStartups = new LinkedList<Startup>();
         
@@ -77,7 +77,7 @@ public class TechGiant {
         StartupDirector director = new StartupDirector();
         StartupBuilder builder = new StartupMP();
         String startupName = "Team America Bros.";
-        director.Construct(builder, startupName, techType);
+        director.Construct(builder, startupName, techType, system);
         Startup firstSU = builder.getStartup();
         firstSU.setOverLord(this);
         this.ownedStartups.add(firstSU);

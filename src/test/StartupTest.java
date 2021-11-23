@@ -27,8 +27,13 @@ public class StartupTest {
     String techTestName;
     TechGiant testTG;
     
+    MarketSystem system;
+    
     @Before
     public void setup() throws Exception{
+        
+        system = new MarketSystem();
+        
         startupDirector = new StartupDirector();
         startupBuilder = new StartupMP();
         testNameMP = "Test Startup";
@@ -36,25 +41,25 @@ public class StartupTest {
         testNameSE = "Backdoor Bros";
         testNameBE = "Better Service";
         
-        startupDirector.Construct(startupBuilder, testNameMP, TechType.MARKETPLACE);
+        startupDirector.Construct(startupBuilder, testNameMP, TechType.MARKETPLACE, system);
         testMP = startupBuilder.getStartup();
         
         startupBuilder = new StartupHW();
-        startupDirector.Construct(startupBuilder, testNameHW, TechType.HARDWARE);
+        startupDirector.Construct(startupBuilder, testNameHW, TechType.HARDWARE, system);
         testHW = startupBuilder.getStartup();
         
         startupBuilder = new StartupSE();
-        startupDirector.Construct(startupBuilder, testNameSE, TechType.SERVICE);
+        startupDirector.Construct(startupBuilder, testNameSE, TechType.SERVICE, system);
         testSE = startupBuilder.getStartup();
         
         startupBuilder = new StartupBE();
-        startupDirector.Construct(startupBuilder, testNameBE, TechType.BUSINESSEXT);
+        startupDirector.Construct(startupBuilder, testNameBE, TechType.BUSINESSEXT, system);
         testBE = startupBuilder.getStartup();
         
         techDirector = new TechGiantDirector();
         techBuilder = new TechGiantNA();
         techTestName = "Test Tech Giant of NA";
-        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE);
+        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE, system);
     }
     
     @After
@@ -73,6 +78,8 @@ public class StartupTest {
         techBuilder = null;
         techTestName = null;
         testTG = null;
+        
+        system = null;
     }
     
     @Test
@@ -187,8 +194,11 @@ public class StartupTest {
     @Test
     public void talentDrainTest() {
        boolean outcome1 = testSE.talentDrain(testBE);
+       System.out.println(outcome1);
        boolean outcome2 = testSE.talentDrain(testHW);
+       System.out.println(outcome2);
        boolean outcome3 = testSE.talentDrain(testMP);
+       System.out.println(outcome3);
        assertNotNull(outcome1);
        assertNotNull(outcome2);
        assertNotNull(outcome3);

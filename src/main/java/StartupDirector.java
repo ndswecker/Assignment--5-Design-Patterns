@@ -6,7 +6,7 @@ package main.java;
 
 public class StartupDirector {
     
-    public void Construct(StartupBuilder builder, String name, TechType type) {
+    public void Construct(StartupBuilder builder, String name, TechType type, MarketSystem system) {
         builder.startApproval();
         builder.startLevel();
         builder.startMarketShare();
@@ -31,7 +31,7 @@ public class StartupDirector {
             builder.setMods(Consts.MOD_MID, Consts.MOD_LOW, Consts.MOD_ZERO, Consts.MOD_HIGH);
         }
         
-        builder.addToSystem();
+        builder.addToSystem(system);
     }
 
 }

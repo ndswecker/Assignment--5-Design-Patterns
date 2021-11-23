@@ -6,13 +6,13 @@ public class Q1 extends QuarterBuilder{
 
     @Override
     public void setOrder(int order) {
-        // TODO Auto-generated method stub
+        newQuarter.order = order;
         
     }
 
     @Override
-    public void addToSystem() {
-        Start.system.allQuarters.add(newQuarter);
+    public void addToSystem(MarketSystem system) {
+        system.allQuarters.add(newQuarter);
         
     }
 

@@ -6,7 +6,7 @@ package main.java;
 
 public class TechGiantDirector {
     
-    public void Construct(TechGiantBuilder builder, String name, TechType type) {
+    public void Construct(TechGiantBuilder builder, String name, TechType type, MarketSystem system) {
         
         builder.startName(name);
         
@@ -18,9 +18,9 @@ public class TechGiantDirector {
         
         builder.startRevenue();
         
-        builder.initialStartup(type);
+        builder.initialStartup(type, system);
         
-        builder.addToSystem();
+        builder.addToSystem(system);
     }
 
 }

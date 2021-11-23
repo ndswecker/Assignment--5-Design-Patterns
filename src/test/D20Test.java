@@ -24,24 +24,39 @@ public class D20Test {
     String techTestName;
     TechGiant testTG;
     
+    MarketSystem system;
+    
     @Before
     public void setup() throws Exception {
         d20 = new D20();
+        
+        system = new MarketSystem();
+        
         startupDirector = new StartupDirector();
         startupBuilder = new StartupMP();
         startupTestName = "Test Startup";
-        startupDirector.Construct(startupBuilder, startupTestName, TechType.MARKETPLACE);
+        startupDirector.Construct(startupBuilder, startupTestName, TechType.MARKETPLACE, system);
         
         techDirector = new TechGiantDirector();
         techBuilder = new TechGiantNA();
         techTestName = "Test Tech Giant of NA";
-        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE);
+        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE, system);
     }
     
     @After
     public void tearDown() throws Exception {
         d20 = null;
         roll = 0;
+        
+        startupDirector = null;
+        startupBuilder = null;
+        startupTestName = null;
+        
+        techDirector = null;
+        techBuilder = null;
+        techTestName = null;
+        
+        system = null;
     }
     
     /**

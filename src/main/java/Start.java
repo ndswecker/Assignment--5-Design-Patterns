@@ -4,19 +4,19 @@ import java.util.*;
 
 public class Start {
     
-    public static MarketSystem system;
+    //public static MarketSystem system;
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         System.out.println("Initial fireup.");
         
-        system = new MarketSystem();
+        MarketSystem system = new MarketSystem();
         
         // Make a Startup
         StartupDirector director = new StartupDirector();
         StartupBuilder builder = new StartupMP();
         String name = "New Startup POW";
-        director.Construct(builder, name, TechType.MARKETPLACE);
+        director.Construct(builder, name, TechType.MARKETPLACE, system);
         Startup firstSU = builder.getStartup();
         
         System.out.println(firstSU.getLevel());
@@ -26,7 +26,7 @@ public class Start {
         TechGiantDirector techDirector = new TechGiantDirector();
         TechGiantBuilder techBuilder = new TechGiantNA();
         String techName = "North American Dominance INC";
-        techDirector.Construct(techBuilder, techName, TechType.SERVICE);
+        techDirector.Construct(techBuilder, techName, TechType.SERVICE, system);
         TechGiant firstTG = techBuilder.getTechGiant();
         
         System.out.println("North America's First Tech Giant:");

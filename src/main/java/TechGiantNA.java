@@ -39,13 +39,13 @@ public class TechGiantNA extends TechGiantBuilder {
     }
 
     @Override
-    public void initialStartup(TechType type) {
-        newTechGiant.firstStartup();
+    public void initialStartup(TechType type, MarketSystem system) {
+        newTechGiant.firstStartup(system);
     }
     
     @Override
-    public void addToSystem() {
-        Start.system.allTechGiants.add(newTechGiant);
+    public void addToSystem(MarketSystem system) {
+        system.allTechGiants.add(newTechGiant);
         
     }
 

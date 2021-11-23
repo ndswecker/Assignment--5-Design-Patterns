@@ -18,8 +18,8 @@ public abstract class TechGiantBuilder {
     
     public abstract void startTechType(TechType type);
     
-    public abstract void initialStartup(TechType type);
+    public abstract void initialStartup(TechType type, MarketSystem system);
     
-    public abstract void addToSystem();
+    public abstract void addToSystem(MarketSystem system);
 
 }

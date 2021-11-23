@@ -100,8 +100,8 @@ public class StartupMP extends StartupBuilder implements StartupAttack {
     }
     
     @Override
-    public void addToSystem() {
-        Start.system.allStartups.add(newStartup);
+    public void addToSystem(MarketSystem system) {
+        system.allStartups.add(newStartup);
         
     }
 

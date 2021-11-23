@@ -10,7 +10,7 @@ public class MarketSystem {
     
     public LinkedList<Quarter> allQuarters;
     
-    MarketSystem(){
+    public MarketSystem(){
         allStartups = new LinkedList();
         allTechGiants = new LinkedList();
         allQuarters = new LinkedList();

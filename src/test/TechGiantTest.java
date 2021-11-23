@@ -20,17 +20,22 @@ public class TechGiantTest {
     String techTestName;
     TechGiant testTG;
     
+    MarketSystem system;
+    
     @Before
     public void setup() throws Exception{
+        
+        system = new MarketSystem();
+        
         startupDirector = new StartupDirector();
         startupBuilder = new StartupMP();
         startupTestName = "Test Startup";
-        startupDirector.Construct(startupBuilder, startupTestName, TechType.MARKETPLACE);
+        startupDirector.Construct(startupBuilder, startupTestName, TechType.MARKETPLACE, system);
         
         techDirector = new TechGiantDirector();
         techBuilder = new TechGiantNA();
         techTestName = "Test Tech Giant of NA";
-        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE);
+        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE, system);
     }
     
     @After
@@ -44,6 +49,8 @@ public class TechGiantTest {
         techBuilder = null;
         techTestName = null;
         testTG = null;
+        
+        system = null;
     }
     
     /**

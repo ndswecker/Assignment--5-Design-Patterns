@@ -99,9 +99,8 @@ public class StartupBE extends StartupBuilder implements StartupAttack{
     }
 
     @Override
-    public void addToSystem() {
-        System.out.println("adding startup to system.");
-        Start.system.allStartups.add(newStartup);
+    public void addToSystem(MarketSystem system) {
+        system.allStartups.add(newStartup);
         
     }
 
