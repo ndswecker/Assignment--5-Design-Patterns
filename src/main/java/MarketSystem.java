@@ -33,5 +33,9 @@ public class MarketSystem {
             System.out.println(listElement.getOrder());
         }
     }
+    
+    public Quarter getQuarter(int quart) {
+        return allQuarters.get(quart);
+    }
 
 }

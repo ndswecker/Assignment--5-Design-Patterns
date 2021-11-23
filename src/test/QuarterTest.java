@@ -128,5 +128,14 @@ public class QuarterTest {
         assertEquals(system.allQuarters.get(2).getOrder(), 3);
         assertEquals(system.allQuarters.get(3).getOrder(), 4);
     }
+    
+    /**
+     * Test marketShareVariance event of QOdd
+     * */
+    @Test
+    public void msVarEventTest() {
+        Quarter current = system.getQuarter(1);
+        current.marketShareVariance(system);
+    }
 
 }
