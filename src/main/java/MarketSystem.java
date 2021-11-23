@@ -15,5 +15,23 @@ public class MarketSystem {
         allTechGiants = new LinkedList();
         allQuarters = new LinkedList();
     }
+    
+    public void listStartups() {
+        for (Startup listElement : allStartups) {
+            System.out.println(listElement.getName());
+        }
+    }
+    
+    public void listTechGiants() {
+        for (TechGiant listElement : allTechGiants) {
+            System.out.println(listElement.getName());
+        }
+    }
+    
+    public void listQuarters() {
+        for (Quarter listElement : allQuarters) {
+            System.out.println(listElement.getOrder());
+        }
+    }
 
 }
