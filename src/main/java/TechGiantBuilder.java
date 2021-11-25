@@ -20,6 +20,8 @@ public abstract class TechGiantBuilder {
     
     public abstract void initialStartup(TechType type, MarketSystem system);
     
+    public abstract void techD20();
+    
     public abstract void addToSystem(MarketSystem system);
 
 }

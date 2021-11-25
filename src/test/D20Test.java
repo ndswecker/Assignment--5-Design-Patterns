@@ -79,7 +79,6 @@ public class D20Test {
         mod1 = 0;
         testSU = startupBuilder.getStartup();
         int roll = testSU.roll(0);
-        System.out.println(roll);
         assertTrue("Error, roll is too high", roll <= (20 + mod1) );
         assertTrue("Error, roll is too low", roll > (0 + mod1) );
     }

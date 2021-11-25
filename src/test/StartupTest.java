@@ -84,36 +84,30 @@ public class StartupTest {
     
     @Test
     public void startupNameTest() {
-        //Startup testSU = startupBuilder.getStartup();
-        System.out.println(testMP.getName() + " vs " + testNameMP);
         assertEquals(testMP.getName(), testNameMP);
     }
     
     @Test
     public void startupStartingLevelTest() {
         int lvl = 1;
-        //Startup testSU = startupBuilder.getStartup();
         assertEquals(testMP.getLevel(), lvl);
     }
     
     @Test
     public void startupStartingApprovalTest() {
         double approve = Consts.SU_LOW;
-        //Startup testSU = startupBuilder.getStartup();
         assertEquals(testMP.getPublicApproval(), approve, 0.001);
     }
     
     @Test
     public void startupStartingNetIncomeTest() {
         double netIncome = Consts.SU_HIGH;
-        //Startup testSU = startupBuilder.getStartup();
         assertEquals(testMP.getNetIncome(), netIncome, 0.001);
     }
     
     @Test
     public void startupStartRevenueTest() {
         double rev = Consts.SU_MID;
-        //Startup testSU = startupBuilder.getStartup();
         assertEquals(testMP.getRevenue(), rev, 0.001);
     }
     
@@ -122,7 +116,6 @@ public class StartupTest {
      *  */
     @Test
     public void startupStartIndependent() {
-       // Startup testSU = startupBuilder.getStartup();
         assertNull(testMP.getOverLord());
     }
     
@@ -131,7 +124,6 @@ public class StartupTest {
      * */
     @Test
     public void startupAddOverLord() {
-        //Startup testSU = startupBuilder.getStartup();
         TechGiant testTG = techBuilder.getTechGiant();
         testMP.setOverLord(testTG);
         assertEquals(testTG, testMP.getOverLord());
@@ -142,7 +134,6 @@ public class StartupTest {
      * */
     @Test
     public void addAndRemoveTG() {
-        //Startup testSU = startupBuilder.getStartup();
         TechGiant testTG = techBuilder.getTechGiant();
         testMP.setOverLord(testTG);
         testMP.makeIndependent();
@@ -194,11 +185,8 @@ public class StartupTest {
     @Test
     public void talentDrainTest() {
        boolean outcome1 = testSE.talentDrain(testBE);
-       System.out.println(outcome1);
        boolean outcome2 = testSE.talentDrain(testHW);
-       System.out.println(outcome2);
        boolean outcome3 = testSE.talentDrain(testMP);
-       System.out.println(outcome3);
        assertNotNull(outcome1);
        assertNotNull(outcome2);
        assertNotNull(outcome3);

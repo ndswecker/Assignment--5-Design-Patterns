@@ -16,9 +16,14 @@ public class TechGiant {
     
     private LinkedList<Startup> ownedStartups;
     
+    private D20 d20;
+    
     public String toString() {
-        String sendable = "***** " + name + " *****";
-        sendable += "\n**** (" + ownedStartups.size() + ") Owned Startups ****";
+        String sendable = "*****\n" + name;
+        sendable += "\nOwned Startups " + ownedStartups.size();
+        sendable += "\nNet Income $M: " + this.netIncome;
+        sendable += "\nPublic Approval %: " + this.publicApproval;
+        sendable += "\n*****";
         return sendable;
     }
     
@@ -66,6 +71,14 @@ public class TechGiant {
         return ownedStartups.size();
     }
     
+    public void generateD20() {
+        d20 = new D20();
+    }
+    
+    public int roll(int mod) {
+        return d20.roll(mod);
+    }
+    
     /**
      * Each TechGiant gets an initial Startup.
      * */
@@ -76,7 +89,22 @@ public class TechGiant {
         // Make an initial startup for the tech giant to own
         StartupDirector director = new StartupDirector();
         StartupBuilder builder = new StartupMP();
-        String startupName = "Team America Bros.";
+        String startupName = "";
+        
+        switch (this.techType) {
+        case HARDWARE:
+            startupName = "Generic Hardware Inc.";
+            break;
+        case BUSINESSEXT:
+            startupName = "Generic Business Extension Co.";
+            break;
+        case SERVICE:
+            startupName = "Generic Service Tech LLC.";
+            break;
+        case MARKETPLACE:
+            startupName = "Generic Online Sellers";
+        }
+        
         director.Construct(builder, startupName, techType, system);
         Startup firstSU = builder.getStartup();
         firstSU.setOverLord(this);
@@ -91,6 +119,7 @@ public class TechGiant {
         this.ownedStartups.add(sub);
         // Set startup overlord to be this overlord
         sub.setOverLord(this);
+        System.out.println(this.getName() + " captured " + sub.getName());
     }
     
     /**

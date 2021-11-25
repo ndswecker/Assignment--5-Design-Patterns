@@ -22,10 +22,9 @@ public class QuarterTest {
     Startup testSE;
     Startup testBE;
     
-    TechGiantDirector techDirector;
-    TechGiantBuilder techBuilder;
-    String techTestName;
-    TechGiant testTG;
+    TechGiant tgNA, tgAS, tgEU;
+    TechGiantDirector tDirector;
+    TechGiantBuilder tBuilder;
     
     MarketSystem system;
     
@@ -40,10 +39,10 @@ public class QuarterTest {
         
         startupDirector = new StartupDirector();
         startupBuilder = new StartupMP();
-        testNameMP = "Test Startup";
-        testNameHW = "The Other Guy";
-        testNameSE = "Backdoor Bros";
-        testNameBE = "Better Service";
+        testNameMP = "Rando MP.";
+        testNameHW = "The Other Guy HW.";
+        testNameSE = "Backdoor Bros SE.";
+        testNameBE = "Better Service BE.";
         
         startupDirector.Construct(startupBuilder, testNameMP, TechType.MARKETPLACE, system);
         testMP = startupBuilder.getStartup();
@@ -60,10 +59,16 @@ public class QuarterTest {
         startupDirector.Construct(startupBuilder, testNameBE, TechType.BUSINESSEXT, system);
         testBE = startupBuilder.getStartup();
         
-        techDirector = new TechGiantDirector();
-        techBuilder = new TechGiantNA();
-        techTestName = "Test Tech Giant of NA";
-        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE, system);
+        tDirector = new TechGiantDirector();
+        tBuilder = new TechGiantNA();
+        tDirector.Construct(tBuilder, "Huberus Enterprises", TechType.SERVICE, system);
+        tgNA = tBuilder.getTechGiant();
+        tBuilder = new TechGiantAS();
+        tDirector.Construct(tBuilder, "Final Harmony", TechType.MARKETPLACE, system);
+        tgAS = tBuilder.getTechGiant();
+        tBuilder = new TechGiantEU();
+        tDirector.Construct(tBuilder, "Precision Snobbery", TechType.BUSINESSEXT, system);
+        tgEU = tBuilder.getTechGiant();
         
         qDirector = new QuarterDirector();
         qBuilder = new QOdd();
@@ -97,16 +102,17 @@ public class QuarterTest {
         testSE = null;
         testBE = null;
         
-        techDirector = null;
-        techBuilder = null;
-        techTestName = null;
-        testTG = null;
-        
         system = null;
+        
+        tgNA = null;
+        tgAS = null;
+        tgEU = null;
+        tDirector = null;
+        tBuilder = null;
     }
     
     /**
-     * Test instantiation of a financial system object
+     * Test instantiation of a financial system object.
      * */
     @Test
     public void finSystemInitTest() {
@@ -118,7 +124,7 @@ public class QuarterTest {
     }
     
     /**
-     * Test Quarter attr
+     * Test Quarter attr.
      * */
     @Test
     public void qAttr() {
@@ -134,8 +140,17 @@ public class QuarterTest {
      * */
     @Test
     public void msVarEventTest() {
-        Quarter current = system.getQuarter(1);
+        Quarter current = system.getQuarter(0);
         current.marketShareVariance(system);
+    }
+    
+    /**
+     * Test catchStartup.
+     * */
+    @Test
+    public void catchStartupTest() {
+        Quarter current = system.getQuarter(0);
+        current.catchStartup(system);
     }
 
 }

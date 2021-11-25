@@ -18,6 +18,8 @@ public class TechGiantDirector {
         
         builder.startRevenue();
         
+        builder.techD20();
+        
         builder.initialStartup(type, system);
         
         builder.addToSystem(system);

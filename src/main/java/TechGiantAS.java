@@ -48,4 +48,10 @@ public class TechGiantAS extends TechGiantBuilder {
         system.allTechGiants.add(newTechGiant);
         
     }
+
+    @Override
+    public void techD20() {
+        newTechGiant.generateD20();
+        
+    }
 }

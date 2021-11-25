@@ -49,4 +49,10 @@ public class TechGiantNA extends TechGiantBuilder {
         
     }
 
+    @Override
+    public void techD20() {
+        newTechGiant.generateD20();
+        
+    }
+
 }
