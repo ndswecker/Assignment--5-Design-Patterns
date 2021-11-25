@@ -21,11 +21,14 @@ public class QOdd extends QuarterBuilder implements QOddEvents{
     
     @Override
     public void marketShareVariance(MarketSystem system) {
-
     }
 
     @Override
     public void catchStartup(MarketSystem system) {
+    }
+
+    @Override
+    public void evolveSUs(MarketSystem system) {
         // TODO Auto-generated method stub
         
     }

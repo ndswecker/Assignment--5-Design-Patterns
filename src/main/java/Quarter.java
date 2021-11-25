@@ -24,10 +24,26 @@ public class Quarter implements FinancialEvents, QOddEvents {
         
     }
 
+    /**
+     * publicScandal is a financial event that effects public approval.
+     * TechGiants effected by this event.
+     * [1,5] = handle poorly, lose approval.
+     * [6,14] = hide it, nobody finds out.
+     * [15,20] = positive spin! gain (100-current)*0.2
+     * */
     @Override
-    public void Nationalization() {
-        // TODO Auto-generated method stub
-        
+    public void publicScandal(MarketSystem system) {
+        for (TechGiant tgElement : system.allTechGiants) {
+            double currentPA = tgElement.getPublicApproval();
+            int paRoll = tgElement.roll(0);
+            if (paRoll < 6) {
+                tgElement.adjPublicApproval(-1 * (100 - currentPA) * 0.2);
+            } else if (paRoll < 15) {
+                // Do nothing
+            } else if (paRoll >= 15) {
+                tgElement.adjPublicApproval((100 - currentPA) * 0.2);
+            }
+        }
     }
 
     /**
@@ -77,6 +93,30 @@ public class Quarter implements FinancialEvents, QOddEvents {
                 listElement.adjMarketShare(currentMS / 10);
             }
         }
+    }
+    
+    /**
+     * evolveSU is a method for startups to naturally evolve in an odd quarter.
+     * Startups undergo random and chaotic events that can cause them to evolve.
+     * Evolution occurs by the advancement of the startup level.
+     * Evolution is influenced by the revenue modifier with a d20 roll.
+     * [1,14] = no change
+     * [15-20] = increase by one level
+     * > 20 = increase by two levels
+     * */
+    @Override
+    public void evolveSUs(MarketSystem system) {
+        for (Startup listSU : system.allStartups) {
+            int revRoll = listSU.roll(listSU.getRevenueMod());
+            if (revRoll < 15) {
+                // Do nothing
+            } else if (revRoll <= 20) {
+                listSU.adjLevel(1);
+            } else if (revRoll > 20) {
+                listSU.adjLevel(2);
+            }
+        }
+        
     }
 
     /**

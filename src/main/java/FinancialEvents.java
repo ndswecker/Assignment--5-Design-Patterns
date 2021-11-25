@@ -6,7 +6,7 @@ public interface FinancialEvents {
     
     public void InternationalConflict();
     
-    public void Nationalization();
+    public void publicScandal(MarketSystem system);
     
     public void taxCuts(MarketSystem system);
 

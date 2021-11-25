@@ -167,5 +167,25 @@ public class QuarterTest {
         System.out.println("\nPOST TAX CUTS EVENT\n");
         system.listTechGiants();
     }
+    
+    @Test
+    public void evolveSUsTest() {
+        System.out.println("\nNOW TESTING EVOLVE STARTUPS\n");
+        system.listStartups();
+        Quarter current = system.getQuarter(0);
+        current.evolveSUs(system);
+        System.out.println("\nPOST EVOLVE STARTUPS EVENT\n");
+        system.listStartups();
+    }
+    
+    @Test
+    public void publicScandalTest() {
+        System.out.println("\nNOW TESTING PUBLIC SCANDAL\n");
+        system.listTechGiants();
+        Quarter current = system.getQuarter(0);
+        current.publicScandal(system);
+        System.out.println("\nPOST PUBLIC SCANDAL EVENT\n");
+        system.listTechGiants();
+    }
 
 }

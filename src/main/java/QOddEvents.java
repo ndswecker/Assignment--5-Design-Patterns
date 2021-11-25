@@ -6,5 +6,6 @@ public interface QOddEvents {
     
     public void catchStartup(MarketSystem system);
     
+    public void evolveSUs(MarketSystem system);
 
 }
