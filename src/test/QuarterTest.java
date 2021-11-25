@@ -140,17 +140,32 @@ public class QuarterTest {
      * */
     @Test
     public void msVarEventTest() {
+        System.out.println("\nNOW TESTING MARKET SHARE VARIANCE EVENT\n");
+        system.listStartups();
         Quarter current = system.getQuarter(0);
         current.marketShareVariance(system);
+        System.out.println("\nPOST MARKET SHARE VARIANCE EVENT\n");
+        system.listStartups();
     }
     
     /**
-     * Test catchStartup.
+     * Test catchStartup financial event in first quarter.
      * */
     @Test
     public void catchStartupTest() {
         Quarter current = system.getQuarter(0);
         current.catchStartup(system);
+        system.listTechGiants();
+    }
+    
+    @Test
+    public void taxCutTest() {
+        System.out.println("\nNOW TESTING TAX CUTS EVENT\n");
+        system.listTechGiants();
+        Quarter current = system.getQuarter(0);
+        current.taxCuts(system);
+        System.out.println("\nPOST TAX CUTS EVENT\n");
+        system.listTechGiants();
     }
 
 }

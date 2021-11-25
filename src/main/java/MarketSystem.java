@@ -18,13 +18,13 @@ public class MarketSystem {
     
     public void listStartups() {
         for (Startup listElement : allStartups) {
-            System.out.println(listElement.getName());
+            System.out.println(listElement.toString());
         }
     }
     
     public void listTechGiants() {
         for (TechGiant listElement : allTechGiants) {
-            System.out.println(listElement.getName());
+            System.out.println(listElement.toString());
         }
     }
     

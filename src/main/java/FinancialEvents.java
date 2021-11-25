@@ -8,6 +8,6 @@ public interface FinancialEvents {
     
     public void Nationalization();
     
-    public void TaxCuts();
+    public void taxCuts(MarketSystem system);
 
 }

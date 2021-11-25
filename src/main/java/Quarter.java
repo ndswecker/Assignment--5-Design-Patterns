@@ -30,19 +30,45 @@ public class Quarter implements FinancialEvents, QOddEvents {
         
     }
 
+    /**
+     * taxCuts is a financial event in an odd quarter.
+     * TechGiants may be increase their net income
+     * by rolling their d20.
+     * [1,5] = no change.
+     * [6,14] = 10% increase.
+     * [15,20] = 15% increase.
+     * */
     @Override
-    public void TaxCuts() {
-        // TODO Auto-generated method stub
+    public void taxCuts(MarketSystem system) {
+        for (TechGiant listElement : system.allTechGiants) {
+            double currrentNI = listElement.getNetIncome();
+            int niRoll = listElement.roll(0);
+            if (niRoll < 6) {
+                // Do nothing
+            } else if (niRoll < 15) {
+                listElement.adjNetIncome(currrentNI * 0.1);
+            } else {
+                listElement.adjNetIncome(currrentNI * 0.15);
+            }
+        }
         
     }
-
+    
+    /**
+     * marketShareVariance is a financial event in an odd quarter.
+     * Startup can gain or lose market share. The startup rolls their d20.
+     * Startups use their market share modifier to effect the outcome.
+     * [1,5] = -10% market share.
+     * [6,14] = no change.
+     * [15,20] + 10% market share.
+     * */
     @Override
     public void marketShareVariance(MarketSystem system) {
         //System.out.println("calling marketShareVariance");
         for (Startup listElement : system.allStartups) {
             double currentMS = listElement.getMarketShare();
             int msRoll = listElement.roll(listElement.getMarketShareMod());
-            System.out.println(listElement.getName() + " rolls " + msRoll);
+            //System.out.println(listElement.getName() + " rolls " + msRoll);
             if (msRoll < 6) {
                 listElement.adjMarketShare(-1 * (currentMS / 10) );
             } else if (msRoll < 15) {
@@ -54,7 +80,7 @@ public class Quarter implements FinancialEvents, QOddEvents {
     }
 
     /**
-     * catchStartup is a method for TechGiants to acquire wild startups.
+     * catchStartup is a method for all TechGiants to acquire wild startups.
      * */
     @Override
     public void catchStartup(MarketSystem system) {
@@ -66,7 +92,7 @@ public class Quarter implements FinancialEvents, QOddEvents {
             // Iterate thru all startups
             for (Startup listStartups : system.allStartups) {
                 Startup victim = listStartups;
-                System.out.println(victim.toString());
+                System.out.println("\n" + victim.toString());
                 // Only attempt to capture wild startups
                 if (victim.getOverLord() == null) {
                     int aggRoll = aggressor.roll(0);

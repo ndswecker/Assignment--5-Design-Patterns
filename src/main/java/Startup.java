@@ -36,8 +36,19 @@ public class Startup implements StartupAttack{
      * Custom ToString for readability.
      * */
     public String toString() {
-        String sendable = "====== " + name + " =====";
-        sendable += "\n===== Level " + level + " =====";
+        String sendable = "===========";
+        sendable += "\n" + this.name;
+        sendable += "\nLevel " + level;
+        sendable += "\nNet Income " + this.netIncome + " ( " + this.netIncomeMod + " )";
+        sendable += "\nRevenue " + this.revenue + " ( " + this.revenueMod + " )";
+        sendable += "\nPublic Approval " + this.publicApproval + " ( " + this.publicApprovalMod + " )";
+        sendable += "\nMarket Share " + this.marketShare + " ( " + this.marketShareMod + " )";
+        if (this.getOverLord() == null) {
+            sendable += "\nWild Startup";
+        } else {
+            sendable += "\nOwned by " + this.getOverLord().getName();
+        }
+        sendable += "\n===========";
         return sendable;
     }
     
