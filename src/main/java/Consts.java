@@ -23,5 +23,5 @@ public final class Consts {
     
     public static final int CRIT = 10;
     
-    public static final double BOOST = 0.5;
+    public static final double BOOST = 0.05;
 }

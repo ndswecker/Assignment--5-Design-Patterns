@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import java.util.LinkedList;
+
 import main.java.*;
 
 public class StartupTest {
@@ -22,10 +24,10 @@ public class StartupTest {
     Startup testSE;
     Startup testBE;
     
-    TechGiantDirector techDirector;
-    TechGiantBuilder techBuilder;
-    String techTestName;
-    TechGiant testTG;
+    TechGiantDirector tDirector;
+    TechGiantBuilder tBuilder;
+    String tgNAName, tgASName, tgEUName;
+    TechGiant tgNA, tgAS, tgEU;
     
     MarketSystem system;
     
@@ -56,10 +58,22 @@ public class StartupTest {
         startupDirector.Construct(startupBuilder, testNameBE, TechType.BUSINESSEXT, system);
         testBE = startupBuilder.getStartup();
         
-        techDirector = new TechGiantDirector();
-        techBuilder = new TechGiantNA();
-        techTestName = "Test Tech Giant of NA";
-        techDirector.Construct(techBuilder, techTestName, TechType.SERVICE, system);
+        tDirector = new TechGiantDirector();
+        tgNAName = "Huberus Enterprises";
+        tgASName = "Final Harmony";
+        tgEUName = "Precision Pretention";
+        
+        tBuilder = new TechGiantNA();
+        tDirector.Construct(tBuilder, tgNAName, TechType.SERVICE, system);
+        tgNA = tBuilder.getTechGiant();
+        
+        tBuilder = new TechGiantAS();
+        tDirector.Construct(tBuilder, tgASName, TechType.MARKETPLACE, system);
+        tgAS = tBuilder.getTechGiant();
+        
+        tBuilder = new TechGiantEU();
+        tDirector.Construct(tBuilder, tgEUName, TechType.BUSINESSEXT, system);
+        tgEU = tBuilder.getTechGiant();
     }
     
     @After
@@ -74,10 +88,12 @@ public class StartupTest {
         testSE = null;
         testBE = null;
         
-        techDirector = null;
-        techBuilder = null;
-        techTestName = null;
-        testTG = null;
+        tDirector = null;
+        tBuilder = null;
+        tgNAName = null;
+        tgNA = null;
+        tgAS = null;
+        tgEU = null;
         
         system = null;
     }
@@ -124,7 +140,7 @@ public class StartupTest {
      * */
     @Test
     public void startupAddOverLord() {
-        TechGiant testTG = techBuilder.getTechGiant();
+        TechGiant testTG = tBuilder.getTechGiant();
         testMP.setOverLord(testTG);
         assertEquals(testTG, testMP.getOverLord());
     }
@@ -134,7 +150,7 @@ public class StartupTest {
      * */
     @Test
     public void addAndRemoveTG() {
-        TechGiant testTG = techBuilder.getTechGiant();
+        TechGiant testTG = tBuilder.getTechGiant();
         testMP.setOverLord(testTG);
         testMP.makeIndependent();
         assertNull(testMP.getOverLord());
@@ -371,6 +387,38 @@ public class StartupTest {
         assertEquals(testMP.getRevenueMod(), Consts.MOD_LOW);
         assertEquals(testMP.getPublicApprovalMod(), Consts.MOD_ZERO);
         assertEquals(testMP.getMarketShareMod(), Consts.MOD_HIGH);
+    }
+    
+    /**
+     * Test a Tech Giant boosting their respective Startups.
+     * Go thru all the owned startups and verify the boost amount of
+     * each attr.
+     * */
+    @Test
+    public void boostStartups() {
+        LinkedList<Startup> owned = tgNA.getStartups();
+        double[][] preBoost = new double[owned.size()][4];
+        double[][] postBoost = new double[owned.size()][4];
+        for (int i = 0; i < owned.size(); i++) {
+            preBoost[i][0] = owned.get(i).getMarketShare();
+            preBoost[i][1] = owned.get(i).getPublicApproval();
+            preBoost[i][2] = owned.get(i).getNetIncome();
+            preBoost[i][3] = owned.get(i).getRevenue();
+        }
+        tgNA.boostStats();
+        for (int t = 0; t < owned.size(); t++) {
+            postBoost[t][0] = tgNA.getStartups().get(t).getMarketShare();
+            postBoost[t][1] = tgNA.getStartups().get(t).getPublicApproval();
+            postBoost[t][2] = tgNA.getStartups().get(t).getNetIncome();
+            postBoost[t][3] = tgNA.getStartups().get(t).getRevenue();
+        }
+        
+        for (int e = 0; e < owned.size(); e++) {
+            assertTrue(preBoost[e][0] < postBoost[e][0]);
+            assertTrue(preBoost[e][1] < postBoost[e][1]);
+            assertEquals(postBoost[e][2], preBoost[e][2] * 1.05, 0.001);
+            assertEquals(postBoost[e][3], preBoost[e][3] * 1.05, 0.001);
+        }
     }
 
 }

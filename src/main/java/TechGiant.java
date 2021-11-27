@@ -135,6 +135,10 @@ public class TechGiant implements TechGiantAttack{
         // Free startup to be wild
         sub.makeIndependent();
     }
+    
+    public LinkedList<Startup> getStartups(){
+        return this.ownedStartups;
+    }
 
     @Override
     public Startup catchStartup(Startup victim) {
