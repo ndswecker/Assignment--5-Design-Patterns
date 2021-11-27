@@ -142,55 +142,139 @@ public class StartupTest {
     
     /**
      * Test a hack server attack from one startup to multiple others.
+     * Revenue
      * */
     @Test
     public void hackServerTest() {
-        boolean outcome1 = testMP.hackServer(testHW);
+        
+        double vicRev = testHW.getRevenue();
+        int outcome1 = testMP.hackServer(testHW);
         assertNotNull(outcome1);
-        boolean outcome2 = testMP.hackServer(testSE);
+        if (outcome1 == 0) {
+            assertEquals(vicRev, testHW.getRevenue(), 0.001);
+        } else if (outcome1 ==1) {
+            assertEquals((vicRev - vicRev * 0.1), testHW.getRevenue(), 0.001);
+        } else if (outcome1 == 2) {
+            assertEquals((vicRev - vicRev * 0.2), testHW.getRevenue(), 0.001);
+        }
+        
+        vicRev = testSE.getRevenue();
+        int outcome2 = testMP.hackServer(testSE);
         assertNotNull(outcome2);
-        boolean outcome3 = testMP.hackServer(testBE);
+        if (outcome2 == 0) {
+            assertEquals(vicRev, testSE.getRevenue(), 0.001);
+        } else if (outcome2 ==1) {
+            assertEquals((vicRev - vicRev * 0.1), testSE.getRevenue(), 0.001);
+        } else if (outcome2 == 2) {
+            assertEquals((vicRev - vicRev * 0.2), testSE.getRevenue(), 0.001);
+        }
+        
+        vicRev = testBE.getRevenue();
+        int outcome3 = testMP.hackServer(testBE);
         assertNotNull(outcome3);
+        if (outcome3 == 0) {
+            assertEquals(vicRev, testBE.getRevenue(), 0.001);
+        } else if (outcome3 ==1) {
+            assertEquals((vicRev - vicRev * 0.1), testBE.getRevenue(), 0.001);
+        } else if (outcome3 == 2) {
+            assertEquals((vicRev - vicRev * 0.2), testBE.getRevenue(), 0.001);
+        }
     }
     
     /**
      * Test an undercut prices attack from one startup to multiple others.
+     * Net Income
      * */
     @Test
     public void undercutPricesTest() {
-        boolean outcome1 = testHW.undercutPrices(testMP);
+        double vicNI = testMP.getNetIncome();
+        int outcome1 = testHW.undercutPrices(testMP);
         assertNotNull(outcome1);
-        boolean outcome2 = testHW.undercutPrices(testBE);
+        if (outcome1 == 0) {
+            assertEquals(vicNI, testMP.getNetIncome(), 0.001);
+        } else if (outcome1 == 1) {
+            assertEquals((vicNI - vicNI * 0.1), testMP.getNetIncome(), 0.001);
+        } else if (outcome1 == 2) {
+            assertEquals((vicNI - vicNI * 0.2), testMP.getNetIncome(), 0.001);
+        }
+        
+        vicNI = testBE.getNetIncome();
+        int outcome2 = testHW.undercutPrices(testBE);
         assertNotNull(outcome2);
-        boolean outcome3 = testHW.undercutPrices(testSE);
+        if (outcome2 == 0) {
+            assertEquals(vicNI, testBE.getNetIncome(), 0.001);
+        } else if (outcome2 ==1) {
+            assertEquals((vicNI - vicNI * 0.1), testBE.getNetIncome(), 0.001);
+        } else if (outcome2 == 2) {
+            assertEquals((vicNI - vicNI * 0.2), testBE.getNetIncome(), 0.001);
+        }
+        
+        vicNI = testSE.getNetIncome();        
+        int outcome3 = testHW.undercutPrices(testSE);
+        assertNotNull(outcome2);
+        if (outcome3 == 0) {
+            assertEquals(vicNI, testSE.getNetIncome(), 0.001);
+        } else if (outcome3 ==1) {
+            assertEquals((vicNI - vicNI * 0.1), testSE.getNetIncome(), 0.001);
+        } else if (outcome3 == 2) {
+            assertEquals((vicNI - vicNI * 0.2), testSE.getNetIncome(), 0.001);
+        }
         assertNotNull(outcome3);
     }
     
     /**
      * Test a misinformationBlast attack from one startup to multiple others.
+     * Public Approval
      * */
     @Test
     public void misninformationBlastTest() {
-        boolean outcome1 = testBE.misinformationBlast(testHW);
-        boolean outcome2 = testBE.misinformationBlast(testMP);
-        boolean outcome3 = testBE.misinformationBlast(testSE);
+
+        double vicApproval = testHW.getPublicApproval();
+        int outcome1 = testBE.misinformationBlast(testHW);
         assertNotNull(outcome1);
+        if (outcome1 == 0) {
+            assertEquals(vicApproval, testHW.getPublicApproval(), 0.001);
+        } else if (outcome1 == 1) {
+            assertEquals(vicApproval - ((100 - vicApproval) * 0.1), testHW.getPublicApproval(), 0.001);
+        } else if (outcome1 == 2) {
+            assertEquals(vicApproval - ((100 - vicApproval) * 0.2), testHW.getPublicApproval(), 0.001);;
+        }
+        
+        vicApproval = testMP.getPublicApproval();
+        int outcome2 = testBE.misinformationBlast(testMP);
         assertNotNull(outcome2);
+        if (outcome2 == 0) {
+            assertEquals(vicApproval, testMP.getPublicApproval(), 0.001);
+        } else if (outcome2 == 1) {
+            assertEquals(vicApproval - ((100 - vicApproval) * 0.1), testMP.getPublicApproval(), 0.001);
+        } else if (outcome2 == 2) {
+            assertEquals(vicApproval - ((100 - vicApproval) * 0.2), testMP.getPublicApproval(), 0.001);
+        }
+        
+        vicApproval = testSE.getPublicApproval();
+        int outcome3 = testBE.misinformationBlast(testSE);
         assertNotNull(outcome3);
+        if (outcome3 == 0) {
+            assertEquals(vicApproval, testSE.getPublicApproval(), 0.001);
+        } else if (outcome3 == 1) {
+            assertEquals(vicApproval - ((100 - vicApproval) * 0.1), testSE.getPublicApproval(), 0.001);
+        } else if (outcome3 == 2) {
+            assertEquals(vicApproval - ((100 - vicApproval) * 0.2), testSE.getPublicApproval(), 0.001);
+        }
     }
     
     /**
      * Test a talentDrainTest() from one startup against multiple others.
      * */
-    @Test
-    public void talentDrainTest() {
-       boolean outcome1 = testSE.talentDrain(testBE);
-       boolean outcome2 = testSE.talentDrain(testHW);
-       boolean outcome3 = testSE.talentDrain(testMP);
-       assertNotNull(outcome1);
-       assertNotNull(outcome2);
-       assertNotNull(outcome3);
-    }
+//    @Test
+//    public void talentDrainTest() {
+//       boolean outcome1 = testSE.talentDrain(testBE);
+//       boolean outcome2 = testSE.talentDrain(testHW);
+//       boolean outcome3 = testSE.talentDrain(testMP);
+//       assertNotNull(outcome1);
+//       assertNotNull(outcome2);
+//       assertNotNull(outcome3);
+//    }
     
     /**
      * Test a BUSINESSEXT mods.

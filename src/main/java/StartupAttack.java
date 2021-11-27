@@ -2,12 +2,12 @@ package main.java;
 
 public interface StartupAttack {
     
-    public boolean hackServer(Startup defender); // revenue attack
+    public int hackServer(Startup defender); 
     
-    public boolean undercutPrices(Startup defender); // market share attack
+    public int undercutPrices(Startup defender); 
     
-    public boolean misinformationBlast(Startup defender); // approval rating attack
+    public int misinformationBlast(Startup defender); 
     
-    public boolean talentDrain(Startup defender); // net income attack
+    public int talentDrain(Startup defender); 
 
 }

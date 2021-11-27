@@ -67,27 +67,27 @@ public class StartupMP extends StartupBuilder implements StartupAttack {
     }
 
     @Override
-    public boolean hackServer(Startup defender) {
+    public int hackServer(Startup defender) {
         // TODO Auto-generated method stub
-        return false;
+        return 0;
     }
 
     @Override
-    public boolean undercutPrices(Startup defender) {
+    public int undercutPrices(Startup defender) {
         // TODO Auto-generated method stub
-        return false;
+        return 0;
     }
 
     @Override
-    public boolean misinformationBlast(Startup defender) {
+    public int misinformationBlast(Startup defender) {
         // TODO Auto-generated method stub
-        return false;
+        return 0;
     }
 
     @Override
-    public boolean talentDrain(Startup defender) {
+    public int talentDrain(Startup defender) {
         
-        return false;
+        return 0;
     }
     
     @Override

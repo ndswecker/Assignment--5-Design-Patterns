@@ -187,5 +187,25 @@ public class QuarterTest {
         System.out.println("\nPOST PUBLIC SCANDAL EVENT\n");
         system.listTechGiants();
     }
+    
+    @Test
+    public void internationalConflictTest() {
+        System.out.println("\nNOW TESTING INTERNATIONAL CONFLICT\n");
+        system.listTechGiants();
+        Quarter current = system.getQuarter(0);
+        current.internationalConflict(system);
+        System.out.println("\nPOST INTERNATIONAL CONFLICT EVENT\n");
+        system.listTechGiants();
+    }
+    
+    @Test
+    public void supplyChainCollapseTest() {
+        System.out.println("\nNOW TESTING SUPPLY CHAIN COLLAPSE\n");
+        system.listTechGiants();
+        Quarter current = system.getQuarter(0);
+        current.supplyChainCollapse(system);
+        System.out.println("\nPOST SUPPLY CHAIN COLLAPSE EVENT\n");
+        system.listTechGiants();
+    }
 
 }

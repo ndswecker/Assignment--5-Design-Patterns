@@ -2,9 +2,9 @@ package main.java;
 
 public interface FinancialEvents {
     
-    public void SupplyChainCollapse();
+    public void supplyChainCollapse(MarketSystem system);
     
-    public void InternationalConflict();
+    public void internationalConflict(MarketSystem system);
     
     public void publicScandal(MarketSystem system);
     

@@ -67,26 +67,26 @@ public class StartupBE extends StartupBuilder implements StartupAttack{
     }
     
     @Override
-    public boolean talentDrain(Startup defender) {
-        return false;
+    public int talentDrain(Startup defender) {
+        return 0;
     }
 
     @Override
-    public boolean hackServer(Startup defender) {
+    public int hackServer(Startup defender) {
         // TODO Auto-generated method stub
-        return false;
+        return 0;
     }
 
     @Override
-    public boolean undercutPrices(Startup defender) {
+    public int undercutPrices(Startup defender) {
         // TODO Auto-generated method stub
-        return false;
+        return 0;
     }
 
     @Override
-    public boolean misinformationBlast(Startup defender) {
+    public int misinformationBlast(Startup defender) {
         // TODO Auto-generated method stub
-        return false;
+        return 0;
     }
 
     @Override

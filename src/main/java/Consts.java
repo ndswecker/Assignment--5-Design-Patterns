@@ -20,4 +20,6 @@ public final class Consts {
     public static final int MOD_MID = 2;
     public static final int MOD_HIGH = 3;
     public static final int MOD_ZERO = 0;
+    
+    public static final int CRIT = 10;
 }

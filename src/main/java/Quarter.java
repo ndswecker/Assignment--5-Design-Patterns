@@ -11,16 +11,46 @@ public class Quarter implements FinancialEvents, QOddEvents {
     public void setOrder(int num) {
         this.order = num;
     }
-
+    /**
+     * supplyChainCollapse is a financial event that effects net income.
+     * [1,5] = 20% loss
+     * [6,14] = 10% loss
+     * [15,20] = no loss
+     * */
     @Override
-    public void SupplyChainCollapse() {
-        // TODO Auto-generated method stub
-        
+    public void supplyChainCollapse(MarketSystem system) {
+        for (TechGiant tgElement : system.allTechGiants) {
+            double currentNI = tgElement.getNetIncome();
+            int niRoll = tgElement.roll(0);
+            if (niRoll < 6) {
+                tgElement.adjNetIncome(-1 * currentNI * 0.2);
+            } else if (niRoll < 15) {
+                tgElement.adjNetIncome(-1 * currentNI * 0.1);
+            } else if (niRoll >=15) {
+                // Do nothing
+            }
+        }
     }
 
+    /**
+     * internationalConflict is a financial event that effects revenue
+     * [1,5] = 20% loss
+     * [6,14] = no loss
+     * [15,20] = 20% gain. The tech giant is able to exploit the conflict for gain.
+     * */
     @Override
-    public void InternationalConflict() {
-        // TODO Auto-generated method stub
+    public void internationalConflict(MarketSystem system) {
+        for (TechGiant tgElement : system.allTechGiants) {
+            double currentRE = tgElement.getRevenue();
+            int reRoll =  tgElement.roll(0);
+            if (reRoll < 6) {
+                tgElement.adjRevenue(-1 * currentRE * 0.2);
+            } else if (reRoll < 15) {
+                // Do nothing
+            } else if (reRoll >= 15) {
+                tgElement.adjRevenue(currentRE * 0.2);
+            }
+        }
         
     }
 

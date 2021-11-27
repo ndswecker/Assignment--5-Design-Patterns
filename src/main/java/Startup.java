@@ -216,58 +216,97 @@ public class Startup implements StartupAttack{
      * hackServer relies on the revenue mod.
      * */
     @Override
-    public boolean hackServer(Startup defender) {
+    public int hackServer(Startup defender) {
         
         int atkRoll = this.roll(this.getRevenueMod());
         int defRoll = defender.roll(defender.getRevenueMod());
         
+        // Determine if the attacker wins
+        // Attacker breaks ties.
         if (atkRoll < defRoll) {
-            return false;
-        }
-        
-        return true;
+            return 0; // Do nothing
+        } else if (atkRoll >= defRoll) {
+            if (atkRoll > defRoll + Consts.CRIT) {
+                defender.adjRevenue(defender.getRevenue() * -0.2);
+                return 2;
+            } else {
+                defender.adjRevenue(defender.getRevenue() * -0.1);
+                return 1;
+            }
+        } 
+        return 0;
     }
     
     /**
      * undercutPrices relies on the net income modifier.
      * */
     @Override
-    public boolean undercutPrices(Startup defender) {
+    public int undercutPrices(Startup defender) {
         int atkRoll = this.roll(this.getNetIncomeMod());
         int defRoll = defender.roll(defender.getNetIncomeMod());
         
+        // Determine if the attacker wins
+        // Attacker breaks ties.
         if (atkRoll < defRoll) {
-            return false;
-        }
-        return true;
+            return 0; // Do nothing
+        } else if (atkRoll >= defRoll) {
+            if (atkRoll > defRoll + Consts.CRIT) {
+                defender.adjNetIncome(defender.getNetIncome() * -0.2);
+                return 2;
+            } else {
+                defender.adjNetIncome(defender.getNetIncome() * -0.1);
+                return 1;
+            }
+        } 
+        return 0;
     }
     
     /**
      * misinformationBlast relies on the public approval modifier.
      * */
     @Override
-    public boolean misinformationBlast(Startup defender) {
+    public int misinformationBlast(Startup defender) {
         int atkRoll = this.roll(this.getPublicApprovalMod());
         int defRoll = defender.roll(defender.getPublicApprovalMod());
         
+        // Determine if the attacker wins
+        // Attacker breaks ties.
         if (atkRoll < defRoll) {
-            return false;
-        }
-        return true;
+            return 0;
+        } else if (atkRoll >= defRoll) {
+            if (atkRoll > defRoll + Consts.CRIT) {
+                defender.adjPublicApproval((100 - defender.getPublicApproval()) * -0.2);
+                return 2;
+            } else {
+                defender.adjPublicApproval((100 - defender.getPublicApproval()) * -0.1);
+                return 1;
+            }
+        } 
+        return 0;
     }
     
     /**
      * talentDrain relies on the market share modifier.
      * */
     @Override
-    public boolean talentDrain(Startup defender) {
+    public int talentDrain(Startup defender) {
         int atkRoll = this.roll(getMarketShareMod());
         int defRoll = defender.roll(defender.getMarketShareMod());
         
+        // Determine if the attacker wins
+        // Attacker breaks ties.
         if (atkRoll < defRoll) {
-            return false;
-        }
-        return true;
+            return 0;
+        } else if (atkRoll >= defRoll) {
+            if (atkRoll > defRoll + Consts.CRIT) {
+                defender.adjMarketShare(defender.getMarketShare() * -0.2);
+                return 2;
+            } else {
+                defender.adjMarketShare(defender.getMarketShare() * -0.1);
+                return 1;
+            }
+        } 
+        return 0;
     }
     
     
