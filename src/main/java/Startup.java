@@ -214,6 +214,7 @@ public class Startup implements StartupAttack{
 
     /**
      * hackServer relies on the revenue mod.
+     * Revenue Attack.
      * */
     @Override
     public int hackServer(Startup defender) {
@@ -239,6 +240,7 @@ public class Startup implements StartupAttack{
     
     /**
      * undercutPrices relies on the net income modifier.
+     * Net Income Attack.
      * */
     @Override
     public int undercutPrices(Startup defender) {
@@ -263,6 +265,7 @@ public class Startup implements StartupAttack{
     
     /**
      * misinformationBlast relies on the public approval modifier.
+     * Public Approval Attack.
      * */
     @Override
     public int misinformationBlast(Startup defender) {
@@ -287,6 +290,7 @@ public class Startup implements StartupAttack{
     
     /**
      * talentDrain relies on the market share modifier.
+     * Market Share Attack.
      * */
     @Override
     public int talentDrain(Startup defender) {

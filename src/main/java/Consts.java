@@ -22,4 +22,6 @@ public final class Consts {
     public static final int MOD_ZERO = 0;
     
     public static final int CRIT = 10;
+    
+    public static final double BOOST = 0.5;
 }

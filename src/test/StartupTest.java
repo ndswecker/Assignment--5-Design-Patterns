@@ -266,15 +266,41 @@ public class StartupTest {
     /**
      * Test a talentDrainTest() from one startup against multiple others.
      * */
-//    @Test
-//    public void talentDrainTest() {
-//       boolean outcome1 = testSE.talentDrain(testBE);
-//       boolean outcome2 = testSE.talentDrain(testHW);
-//       boolean outcome3 = testSE.talentDrain(testMP);
-//       assertNotNull(outcome1);
-//       assertNotNull(outcome2);
-//       assertNotNull(outcome3);
-//    }
+    @Test
+    public void talentDrainTest() {
+       double vicMS = testBE.getMarketShare();
+       int outcome1 = testSE.talentDrain(testBE);
+       assertNotNull(outcome1);
+       if (outcome1 == 0) {
+           assertEquals(vicMS, testBE.getMarketShare(), 0.001);
+       } else if (outcome1 == 1) {
+           assertEquals(testBE.getMarketShare(), vicMS - (vicMS * 0.1), 0.001);
+       } else if (outcome1 == 2) {
+           assertEquals(testBE.getMarketShare(), vicMS - (vicMS * 0.2), 0.001);
+       }
+       
+       vicMS = testHW.getMarketShare();
+       int outcome2 = testSE.talentDrain(testHW);
+       assertNotNull(outcome2);
+       if (outcome2 == 0) {
+           assertEquals(vicMS, testHW.getMarketShare(), 0.001);
+       } else if (outcome2 == 1) {
+           assertEquals(testHW.getMarketShare(), vicMS - (vicMS * 0.1), 0.001);
+       } else if (outcome2 == 2) {
+           assertEquals(testHW.getMarketShare(), vicMS - (vicMS * 0.2), 0.001);
+       }
+       
+       vicMS = testMP.getMarketShare();
+       int outcome3 = testSE.talentDrain(testMP);
+       assertNotNull(outcome3);
+       if (outcome3 == 0) {
+           assertEquals(vicMS, testMP.getMarketShare(), 0.001);
+       } else if (outcome3 == 1) {
+           assertEquals(testMP.getMarketShare(), vicMS - (vicMS * 0.1), 0.001);
+       } else if (outcome3 == 2) {
+           assertEquals(testMP.getMarketShare(), vicMS - (vicMS * 0.2), 0.001);
+       }
+    }
     
     /**
      * Test a BUSINESSEXT mods.

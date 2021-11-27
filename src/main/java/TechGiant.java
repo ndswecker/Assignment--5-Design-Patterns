@@ -6,7 +6,7 @@ import java.util.*;
 * Class: TechGiant represents a tech giant that owns startups.
 */
 
-public class TechGiant {
+public class TechGiant implements TechGiantAttack{
     private double netIncome;
     private double revenue;
     private double publicApproval;
@@ -134,6 +134,33 @@ public class TechGiant {
         }
         // Free startup to be wild
         sub.makeIndependent();
+    }
+
+    @Override
+    public Startup catchStartup(Startup victim) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /**
+     * boostStats is a method for a tech giant to boost the stats of their startups.
+     * */
+    @Override
+    public void boostStats() {
+        for (Startup su : this.ownedStartups) {
+            // MarketShare & Public Approval is a percentage, so adjust it by the boost rate
+            su.adjMarketShare((100 - su.getMarketShare()) * Consts.BOOST);
+            su.adjPublicApproval((100 - su.getPublicApproval()) * Consts.BOOST);
+            su.adjNetIncome(su.getNetIncome() * Consts.BOOST);
+            su.adjRevenue(su.getRevenue() * Consts.BOOST);
+        }
+        
+    }
+
+    @Override
+    public void evolveAStartup(Startup ascender) {
+        // TODO Auto-generated method stub
+        
     }
     
 }

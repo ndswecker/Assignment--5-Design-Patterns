@@ -30,7 +30,7 @@ public class MarketSystem {
     
     public void listQuarters() {
         for (Quarter listElement : allQuarters) {
-            System.out.println(listElement.getOrder());
+            System.out.println(listElement.toString());
         }
     }
     

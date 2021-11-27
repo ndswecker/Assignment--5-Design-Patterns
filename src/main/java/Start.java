@@ -51,7 +51,7 @@ public class Start {
         sDirector.Construct(sBuilder, "Spartan Steel", TechType.HARDWARE, system);
         suHW = sBuilder.getStartup();
         
-        system.listStartups();
+        //system.listStartups();
         
         // Build TechGiants
         TechGiant tgNA, tgAS, tgEU;
@@ -67,6 +67,8 @@ public class Start {
         tgEU = tBuilder.getTechGiant();
         
         system.listTechGiants();
+        system.listStartups();
+        system.listQuarters();
 
     }
 

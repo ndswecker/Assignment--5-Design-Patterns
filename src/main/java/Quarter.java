@@ -11,6 +11,15 @@ public class Quarter implements FinancialEvents, QOddEvents {
     public void setOrder(int num) {
         this.order = num;
     }
+    
+    @Override
+    public String toString() {
+        String sendable = ":::::::::::";
+        sendable += "\nQuarter " + this.getOrder();
+        sendable += "\n::::::::::";
+        return sendable;
+    }
+    
     /**
      * supplyChainCollapse is a financial event that effects net income.
      * [1,5] = 20% loss
