@@ -14,7 +14,7 @@ public class TechGiant implements TechGiantAttack{
     
     private TechType techType;
     
-    private LinkedList<Startup> ownedStartups;
+    public LinkedList<Startup> ownedStartups;
     
     private D20 d20;
     

@@ -69,6 +69,10 @@ public class Start {
         system.listTechGiants();
         system.listStartups();
         system.listQuarters();
+        
+        system.marketLoop();
+        
+
 
     }
 
