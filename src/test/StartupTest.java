@@ -405,7 +405,7 @@ public class StartupTest {
             preBoost[i][2] = owned.get(i).getNetIncome();
             preBoost[i][3] = owned.get(i).getRevenue();
         }
-        tgNA.boostStats();
+        tgNA.boostAllStats();
         for (int t = 0; t < owned.size(); t++) {
             postBoost[t][0] = tgNA.getStartups().get(t).getMarketShare();
             postBoost[t][1] = tgNA.getStartups().get(t).getPublicApproval();

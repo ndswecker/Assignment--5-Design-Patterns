@@ -24,7 +24,7 @@ public class QOdd extends QuarterBuilder implements QOddEvents{
     }
 
     @Override
-    public void catchStartup(MarketSystem system) {
+    public void roundupStartups(MarketSystem system) {
     }
 
     @Override

@@ -15,6 +15,7 @@ public class StartupDirector {
         builder.startTechType(type);
         builder.startRevenue();
         builder.startupD20();
+        builder.setID();
         
         // netIcome, revenue, publicApproval, marketShare
         switch (type) {

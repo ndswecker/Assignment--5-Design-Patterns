@@ -3,12 +3,12 @@ package main.java;
 import java.util.*;
 
 public class Start {
-    
-    //public static MarketSystem system;
 
     public static void main(String[] args) {
         
         System.out.println("Initial fireup.");
+        
+        //GenerateID idGenerator = new GenerateID();
         
         // Build a financial market system
         MarketSystem system = new MarketSystem();

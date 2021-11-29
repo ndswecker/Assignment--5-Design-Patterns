@@ -142,7 +142,14 @@ public class TechGiant implements TechGiantAttack{
 
     @Override
     public Startup catchStartup(Startup victim) {
-        // TODO Auto-generated method stub
+        System.out.println(this.getName() + " attempting to capture " + victim.getName());
+        int aggRoll = this.roll(0);
+        int vicRoll = victim.roll(victim.getNetIncomeMod());
+        if (aggRoll > vicRoll) {
+            this.consumeStartup(victim);
+        } else {
+            System.out.println("failed to capture " + victim.getName());
+        }
         return null;
     }
 
@@ -150,7 +157,7 @@ public class TechGiant implements TechGiantAttack{
      * boostStats is a method for a tech giant to boost the stats of their startups.
      * */
     @Override
-    public void boostStats() {
+    public void boostAllStats() {
         for (Startup su : this.ownedStartups) {
             // MarketShare & Public Approval is a percentage, so adjust it by the boost rate
             su.adjMarketShare((100 - su.getMarketShare()) * Consts.BOOST);
@@ -163,8 +170,19 @@ public class TechGiant implements TechGiantAttack{
 
     @Override
     public void evolveAStartup(Startup ascender) {
-        // TODO Auto-generated method stub
-        
+        ascender.adjLevel(1);
+        System.out.println(ascender.getName() + " gained a level");
+        //ascender.adjNetIncome(ascender.getNetIncome() * 0.2); // 20% gain in net income
+        //ascender.adjRevenue(ascender.getRevenue() * 0.2); // 20% gain in revenue;
+    }
+
+    @Override
+    public void boostOneStats(Startup booster) {
+        booster.adjMarketShare((100 - booster.getMarketShare()) * Consts.BOOST);
+        booster.adjPublicApproval((100 - booster.getPublicApproval()) * Consts.BOOST);
+        booster.adjNetIncome(booster.getNetIncome() * Consts.BOOST);
+        booster.adjRevenue(booster.getRevenue() * Consts.BOOST);
+        System.out.println(booster.getName() + " has been boosted");
     }
     
 }

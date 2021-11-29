@@ -27,6 +27,8 @@ public abstract class StartupBuilder {
     
     public abstract void setMods(int net, int rev, int app, int mar);
     
+    public abstract void setID();
+    
     public abstract void addToSystem(MarketSystem system);
 
 }

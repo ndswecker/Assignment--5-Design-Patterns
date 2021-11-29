@@ -154,7 +154,7 @@ public class QuarterTest {
     @Test
     public void catchStartupTest() {
         Quarter current = system.getQuarter(0);
-        current.catchStartup(system);
+        current.roundupStartups(system);
         system.listTechGiants();
     }
     

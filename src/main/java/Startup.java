@@ -21,7 +21,7 @@ public class Startup implements StartupAttack{
     private double marketShare;
     private double publicApproval;
     private String name;
-    
+    private int id;
     private int level;
     
     public TechGiant overLord;
@@ -37,7 +37,7 @@ public class Startup implements StartupAttack{
      * */
     public String toString() {
         String sendable = "===========";
-        sendable += "\n" + this.name;
+        sendable += "\n" + this.name + "(ID: " + this.getID() + " )";
         sendable += "\nLevel " + level;
         sendable += "\nNet Income " + this.netIncome + " ( " + this.netIncomeMod + " )";
         sendable += "\nRevenue " + this.revenue + " ( " + this.revenueMod + " )";
@@ -50,6 +50,14 @@ public class Startup implements StartupAttack{
         }
         sendable += "\n===========";
         return sendable;
+    }
+    
+    public void setID(int num) {
+        this.id = num;
+    }
+    
+    public int getID() {
+        return this.id;
     }
     
     public void adjNetIncome(double amount) {
@@ -218,19 +226,23 @@ public class Startup implements StartupAttack{
      * */
     @Override
     public int hackServer(Startup defender) {
-        
+        System.out.println(this.getName() + " Now attacking " + defender.getName());
         int atkRoll = this.roll(this.getRevenueMod());
         int defRoll = defender.roll(defender.getRevenueMod());
         
         // Determine if the attacker wins
         // Attacker breaks ties.
         if (atkRoll < defRoll) {
+            System.out.println("attack fails");
             return 0; // Do nothing
         } else if (atkRoll >= defRoll) {
+            System.out.print("attack succesfull, ");
             if (atkRoll > defRoll + Consts.CRIT) {
+                System.out.print("critical hit.\n");
                 defender.adjRevenue(defender.getRevenue() * -0.2);
                 return 2;
             } else {
+                System.out.println("normal hit.\n");
                 defender.adjRevenue(defender.getRevenue() * -0.1);
                 return 1;
             }

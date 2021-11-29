@@ -104,5 +104,11 @@ public class StartupHW extends StartupBuilder implements StartupAttack {
         system.allStartups.add(newStartup);
         
     }
+
+    @Override
+    public void setID() {
+        GenerateID newID = GenerateID.getInstance();
+        newStartup.setID(newID.getNewID());
+    }
     
 }

@@ -162,16 +162,17 @@ public class Quarter implements FinancialEvents, QOddEvents {
      * catchStartup is a method for all TechGiants to acquire wild startups.
      * */
     @Override
-    public void catchStartup(MarketSystem system) {
+    public void roundupStartups(MarketSystem system) {
+        System.out.println("INITIATING TECH GIANT ROUND UP OF WILD STARTUPS");
         // Iterate thru all tech giants
         for (TechGiant listGiants : system.allTechGiants) {
             TechGiant aggressor = listGiants;
-            System.out.println(aggressor.toString());
+            System.out.println(aggressor.getName());
             System.out.println("--- vs ---");
             // Iterate thru all startups
             for (Startup listStartups : system.allStartups) {
                 Startup victim = listStartups;
-                System.out.println("\n" + victim.toString());
+                System.out.println("\n" + victim.getName());
                 // Only attempt to capture wild startups
                 if (victim.getOverLord() == null) {
                     int aggRoll = aggressor.roll(0);

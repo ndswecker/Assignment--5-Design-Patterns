@@ -76,4 +76,10 @@ public class StartupSE extends StartupBuilder {
         
     }
 
+    @Override
+    public void setID() {
+        GenerateID newID = GenerateID.getInstance();
+        newStartup.setID(newID.getNewID());
+    }
+
 }

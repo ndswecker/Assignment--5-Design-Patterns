@@ -104,4 +104,10 @@ public class StartupBE extends StartupBuilder implements StartupAttack{
         
     }
 
+    @Override
+    public void setID() {
+        GenerateID newID = GenerateID.getInstance();
+        newStartup.setID(newID.getNewID());
+    }
+
 }
