@@ -256,18 +256,23 @@ public class Startup implements StartupAttack{
      * */
     @Override
     public int undercutPrices(Startup defender) {
+        System.out.println(this.getName() + " Now attacking " + defender.getName());
         int atkRoll = this.roll(this.getNetIncomeMod());
         int defRoll = defender.roll(defender.getNetIncomeMod());
         
         // Determine if the attacker wins
         // Attacker breaks ties.
         if (atkRoll < defRoll) {
+            System.out.println("attack fails");
             return 0; // Do nothing
         } else if (atkRoll >= defRoll) {
+            System.out.print("attack succesfull, ");
             if (atkRoll > defRoll + Consts.CRIT) {
+                System.out.print("critical hit.\n");
                 defender.adjNetIncome(defender.getNetIncome() * -0.2);
                 return 2;
             } else {
+                System.out.println("normal hit.\n");
                 defender.adjNetIncome(defender.getNetIncome() * -0.1);
                 return 1;
             }
@@ -281,18 +286,23 @@ public class Startup implements StartupAttack{
      * */
     @Override
     public int misinformationBlast(Startup defender) {
+        System.out.println(this.getName() + " Now attacking " + defender.getName());
         int atkRoll = this.roll(this.getPublicApprovalMod());
         int defRoll = defender.roll(defender.getPublicApprovalMod());
         
         // Determine if the attacker wins
         // Attacker breaks ties.
         if (atkRoll < defRoll) {
+            System.out.println("attack fails");
             return 0;
         } else if (atkRoll >= defRoll) {
+            System.out.print("attack succesfull, ");
             if (atkRoll > defRoll + Consts.CRIT) {
+                System.out.print("critical hit.\n");
                 defender.adjPublicApproval((100 - defender.getPublicApproval()) * -0.2);
                 return 2;
             } else {
+                System.out.println("normal hit.\n");
                 defender.adjPublicApproval((100 - defender.getPublicApproval()) * -0.1);
                 return 1;
             }
@@ -306,18 +316,23 @@ public class Startup implements StartupAttack{
      * */
     @Override
     public int talentDrain(Startup defender) {
+        System.out.println(this.getName() + " Now attacking " + defender.getName());
         int atkRoll = this.roll(getMarketShareMod());
         int defRoll = defender.roll(defender.getMarketShareMod());
         
         // Determine if the attacker wins
         // Attacker breaks ties.
         if (atkRoll < defRoll) {
+            System.out.println("attack fails");
             return 0;
         } else if (atkRoll >= defRoll) {
+            System.out.print("attack succesfull, ");
             if (atkRoll > defRoll + Consts.CRIT) {
+                System.out.print("critical hit.\n");
                 defender.adjMarketShare(defender.getMarketShare() * -0.2);
                 return 2;
             } else {
+                System.out.println("normal hit.\n");
                 defender.adjMarketShare(defender.getMarketShare() * -0.1);
                 return 1;
             }
