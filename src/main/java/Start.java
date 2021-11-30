@@ -66,9 +66,9 @@ public class Start {
         tDirector.Construct(tBuilder, "Precision Snobbery", TechType.BUSINESSEXT, system);
         tgEU = tBuilder.getTechGiant();
         
-        system.listTechGiants();
-        system.listStartups();
-        system.listQuarters();
+        //system.listTechGiants();
+        //system.listStartups();
+        //system.listQuarters();
         
         system.marketLoop();
         

@@ -119,14 +119,14 @@ public class MarketSystem implements Container {
                     
                     // Tech Giants get a chance to boost or evolve one of their startups
                     for (TechGiant tg : allTechGiants) { // Go thru each Tech Giant
-                        System.out.println(tg.getName() + " Select one of your startups");
+                        System.out.println("\n" + tg.getName() + " Select one of your startups");
                         for (Startup su : tg.ownedStartups) { // iterate thru each startup
                             System.out.println(su.toString());
                         }
                         input = in.next();
                         int selector = Integer.parseInt(input);
                         Startup selected = this.getByID(selector);
-                        System.out.println("you've selected " + selected.getName());
+                        System.out.println(" you've selected " + selected.getName());
                         System.out.println("Would you like to (1) Evolve it, or (2) Boost its stats?");
                         input = in.next();
                         selector = Integer.parseInt(input);
@@ -146,17 +146,17 @@ public class MarketSystem implements Container {
                     // COMBAT //
                     for (TechGiant tg : allTechGiants) {
                         // Select an aggressor startup
-                        System.out.println("Select your startup to engage in battle.");
+                        System.out.println("\n" + tg.getName() + " Select your startup to engage in battle.");
                         for (Startup su : tg.ownedStartups) {
                             System.out.println(su.toString());
                         }
                         input = in.next();
                         int selector = Integer.parseInt(input);
                         Startup aggressor = this.getByID(selector);
-                        System.out.println("You've selected " + aggressor.getName());
+                        System.out.println(" You've selected " + aggressor.getName());
                         
                         // Select a victim startup
-                        System.out.println("Select an enemy Startup to attack");
+                        System.out.println(" Select an enemy Startup to attack");
                         for (Startup su : this.allStartups) {
                             if (su.getOverLord() != null && su.getOverLord() != tg) {
                                 System.out.println(su.toString());
@@ -165,10 +165,10 @@ public class MarketSystem implements Container {
                         input = in.next();
                         selector = Integer.parseInt(input);
                         Startup victim = this.getByID(selector);
-                        System.out.println("You've selected as a victim " + victim.getName());
+                        System.out.println(" You've selected as a victim " + victim.getName());
                         
                         // Select an attack type
-                        System.out.println("How do you want to attack?\n(1)Hack Server\n(2)Undercut prices\n(3)Misinformation Blast\n(4)Talent Drain");
+                        System.out.println("\nHow do you want to attack?\n(1)Hack Server\n(2)Undercut prices\n(3)Misinformation Blast\n(4)Talent Drain");
                         input = in.next();
                         selector = Integer.parseInt(input);
                         switch (selector) {
@@ -200,6 +200,7 @@ public class MarketSystem implements Container {
                 }
             
             counterQ = (counterQ + 1) % 4;
+            System.out.println("\n**** End of Quarter ****\n");
         }
     }
 
