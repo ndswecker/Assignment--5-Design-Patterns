@@ -21,11 +21,16 @@ public class MarketSystem implements Container {
     }
     
     @Override
-    public Iterator getIterator() {
-       return new NameIterator();
+    public Iterator getIteratorSU() {
+       return new StartupIterator();
     }
     
-    private class NameIterator implements Iterator{
+    @Override
+    public Iterator getIteratorTG() {
+        return new TechGiantIterator();
+    }
+    
+    private class StartupIterator implements Iterator{
         int index;
         
         @Override
@@ -44,17 +49,35 @@ public class MarketSystem implements Container {
             return null;
         }
     }
+    private class TechGiantIterator implements Iterator{
+        int index;
+        
+        @Override
+        public boolean hasNext() {
+            if (index < allTechGiants.size()) {
+                return true;
+            }
+            return false;
+        }
+        
+        @Override
+        public Object next() {
+            if (this.hasNext()) {
+                return allTechGiants.get(index++);
+            }
+            return null;
+        }
+    }
     
     public void listStartups() {
-        
-        for (Iterator iter = this.getIterator(); iter.hasNext();) {
+        for (Iterator iter = this.getIteratorSU(); iter.hasNext();) {
             System.out.println(iter.next().toString());
         }
     }
     
     public void listTechGiants() {
-        for (TechGiant listElement : allTechGiants) {
-            System.out.println(listElement.toString());
+        for (Iterator iter = this.getIteratorTG(); iter.hasNext();) {
+            System.out.println(iter.next().toString());
         }
     }
     

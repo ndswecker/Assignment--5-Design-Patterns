@@ -2,6 +2,8 @@ package main.java;
 
 public interface Container {
     
-    public Iterator getIterator();
+    public Iterator getIteratorSU();
+    
+    public Iterator getIteratorTG();
     
 }
