@@ -8,7 +8,13 @@
  plugins {
      id "com.github.spotbugs" version "4.5.1"
      id "checkstyle"
+     id 'jacoco'
  }
+ 
+ jacoco {
+    toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
 
  apply plugin: 'application'
  apply plugin: 'jacoco'
@@ -24,6 +30,12 @@
  }
  
  test {
+ }
+ 
+
+ 
+ run {
+    standardInput = System.in
  }
  
  ///////////////////////////////////////////////////////////////////////
