@@ -92,17 +92,17 @@ public class TechGiant implements TechGiantAttack{
         String startupName = "";
         
         switch (this.techType) {
-        case HARDWARE:
-            startupName = "Generic Hardware Inc.";
-            break;
-        case BUSINESSEXT:
-            startupName = "Generic Business Extension Co.";
-            break;
-        case SERVICE:
-            startupName = "Generic Service Tech LLC.";
-            break;
-        case MARKETPLACE:
-            startupName = "Generic Online Sellers";
+            case HARDWARE:
+                startupName = "Generic Hardware Inc.";
+                break;
+            case BUSINESSEXT:
+                startupName = "Generic Business Extension Co.";
+                break;
+            case SERVICE:
+                startupName = "Generic Service Tech LLC.";
+                break;
+            case MARKETPLACE:
+                startupName = "Generic Online Sellers";
         }
         
         director.Construct(builder, startupName, techType, system);
