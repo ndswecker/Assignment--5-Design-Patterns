@@ -111,7 +111,7 @@ public class TechGiantTest {
         testSU = startupBuilder.getStartup();
         testTG = techBuilder.getTechGiant();
         testTG.consumeStartup(testSU);
-        testTG.releaseStartup(testSU);
+        //testTG.releaseStartup(testSU);
         assertEquals(testTG.getNumOfStartups(), 1);
         assertNull(testSU.getOverLord());
     }

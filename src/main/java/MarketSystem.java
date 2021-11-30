@@ -2,7 +2,7 @@ package main.java;
 
 import java.util.*;
 
-public class MarketSystem {
+public class MarketSystem implements Container {
     
     public LinkedList<Startup> allStartups;
     
@@ -20,9 +20,35 @@ public class MarketSystem {
         in = new Scanner(System.in);
     }
     
+    @Override
+    public Iterator getIterator() {
+       return new NameIterator();
+    }
+    
+    private class NameIterator implements Iterator{
+        int index;
+        
+        @Override
+        public boolean hasNext() {
+            if (index < allStartups.size()) {
+                return true;
+            }
+            return false;
+        }
+        
+        @Override
+        public Object next() {
+            if (this.hasNext()) {
+                return allStartups.get(index++);
+            }
+            return null;
+        }
+    }
+    
     public void listStartups() {
-        for (Startup listElement : allStartups) {
-            System.out.println(listElement.toString());
+        
+        for (Iterator iter = this.getIterator(); iter.hasNext();) {
+            System.out.println(iter.next().toString());
         }
     }
     

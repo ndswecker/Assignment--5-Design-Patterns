@@ -125,16 +125,16 @@ public class TechGiant implements TechGiantAttack{
     /**
      * Remove a Startup from the TechGiant's ownership.
      * */
-    public void releaseStartup(Startup sub) {
-        for (Iterator<Startup> iter = ownedStartups.iterator(); iter.hasNext();) {
-            Startup su = iter.next();
-            if (su == sub) {
-                iter.remove();
-            }
-        }
-        // Free startup to be wild
-        sub.makeIndependent();
-    }
+//    public void releaseStartup(Startup sub) {
+//        for (Iterator<Startup> iter = ownedStartups.iterator(); iter.hasNext();) {
+//            Startup su = iter.next();
+//            if (su == sub) {
+//                iter.remove();
+//            }
+//        }
+//        // Free startup to be wild
+//        sub.makeIndependent();
+//    }
     
     public LinkedList<Startup> getStartups(){
         return this.ownedStartups;
