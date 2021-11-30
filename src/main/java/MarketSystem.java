@@ -100,6 +100,9 @@ public class MarketSystem implements Container {
         return null;
     }
     
+    /**
+     * marketLoop simulates the 4 quarters.
+     * */
     public void marketLoop() {
         String input = "";
         boolean ongoing = true;
